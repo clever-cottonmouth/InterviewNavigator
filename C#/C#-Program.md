@@ -270,7 +270,7 @@ public class Program
 
 ```
 using System;
-			
+		
 public class Program
 {
 	public static void Main()
@@ -374,7 +374,7 @@ public class Program
 
 ```
 using System;
-	
+
 public class Program
 {
 	public static void Main()
@@ -461,7 +461,7 @@ class Program
         string s="1,2,3,4";
 		List<int> da = new List<int>();
 		string[] stringArray = s.Split(',');
-	
+
 		foreach(var n in stringArray){
 			int data = int.Parse(n);
 			da.Add(data);
@@ -470,4 +470,123 @@ class Program
     }
 }
 
+```
+
+
+## Find the longest substring without repeating characters.
+
+```
+public class Solution {
+    public int LongestSubstringWithoutRepeat(string s) {
+        if (string.IsNullOrEmpty(s)) return 0;
+      
+        HashSet<char> seen = new HashSet<char>();
+        int maxLength = 0;
+        int start = 0;
+      
+        for (int end = 0; end < s.Length; end++) {
+            // While we encounter a duplicate, shrink the window
+            while (seen.Contains(s[end])) {
+                seen.Remove(s[start]);
+                start++;
+            }
+            // Add current character to the set
+            seen.Add(s[end]);
+            // Update maxLength if current window is larger
+            maxLength = Math.Max(maxLength, end - start + 1);
+        }
+      
+        return maxLength;
+    }
+}
+```
+
+## Valid Parenthesis
+
+```
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static bool IsValid(string s)
+    {
+        Stack<char> stack = new Stack<char>();
+
+        foreach (char c in s)
+        {
+            if (c == '(' || c == '{' || c == '[')
+            {
+                stack.Push(c);
+            }
+            else if (c == ')' || c == '}' || c == ']')
+            {
+                if (stack.Count == 0)
+                    return false;
+
+                char top = stack.Pop();
+                if ((c == ')' && top != '(') ||
+                    (c == '}' && top != '{') ||
+                    (c == ']' && top != '['))
+                    return false;
+            }
+        }
+
+        return stack.Count == 0;
+    }
+
+    public static void Main()
+    {
+        string input = "({[]})";
+        bool result = IsValid(input);
+        Console.WriteLine($"Input: {input}");
+        Console.WriteLine($"Is Valid: {result}");
+    }
+}
+```
+
+## Two Sum
+
+```
+public class Solution {
+    public int[] TwoSum(int[] nums, int target) {
+        Dictionary<int, int> numToIndex = new Dictionary<int, int>();
+      
+        for (int i = 0; i < nums.Length; i++) {
+            int complement = target - nums[i];
+          
+            if (numToIndex.ContainsKey(complement)) {
+                return new int[] { numToIndex[complement], i };
+            }
+          
+            numToIndex[nums[i]] = i;
+        }
+      
+        return new int[0]; // Empty array if no solution (not reached due to problem guarantee)
+    }
+}
+```
+
+## Find the maximum subarray sum.
+
+```
+public class Solution {
+    public int MaxSubarraySum(int[] nums) {
+        if (nums == null || nums.Length == 0) {
+            return 0;
+        }
+    
+        int maxSum = nums[0];  // Initialize max sum with first element
+        int currentSum = nums[0];  // Initialize current sum with first element
+    
+        for (int i = 1; i < nums.Length; i++) {
+            // Decide whether to start new subarray or extend existing
+            currentSum = Math.Max(nums[i], currentSum + nums[i]);
+            // Update maxSum if currentSum is larger
+            maxSum = Math.Max(maxSum, currentSum);
+        }
+    
+        return maxSum;
+    }
+}
 ```
