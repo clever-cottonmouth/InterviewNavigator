@@ -28,3 +28,104 @@ git merge origin/master
 git log --graph --color --decorate --oneline --all
 
 gitk --all
+
+
+
+ ## Git to discard uncommitted changes in your working directory
+
+```
+git restore .
+
+```
+
+## Moves the last commit back to the staging area (index), keeping all changes.
+
+```
+git reset --soft HEAD~
+
+```
+
+## Moves the last commit back to the staging area (index), Discard all changes.
+
+```
+git reset --hard HEAD~
+```
+
+## Deletes a local branch named branch_name.
+
+```
+git branch -d branch_name
+
+```
+
+## Force Delete a Branch (If Not Merged):
+
+```
+git branch -D branch_name
+
+```
+
+## Delete a Remote Branch:
+
+```
+git push origin --delete branch_name
+
+```
+
+## List both local & remote branches:
+
+```
+git branch -a
+
+```
+
+## Prunes (removes) local references to remote branches that no longer exist on the remote.
+
+```
+git fetch --prune
+
+```
+
+## Quickly Switch to the Previous Branch
+
+```
+git checkout -
+```
+
+## Show a Visual Branch Tree
+
+```
+git log --oneline --graph --all
+```
+
+## Search Commit Messages
+
+```
+git log --grep="bugfix"
+```
+
+## Configures Git to use Windows' built-in SSL/TLS (Schannel) instead of OpenSSL
+
+```
+git config --global https.sslBackend schannel
+```
+
+## Trigger the CI/CD pipeline with a blank commit
+
+```
+git commit --allow-empty -m 'Empty commit'
+```
+
+## Adding a Git subtree to your repository
+
+```
+git remote add -f eCommerceSolution.OrdersService https://github.com/mirajhad/eCommerceSolution.OrdersService.git
+git subtree add --prefix=eCommerceSolution.OrdersService eCommerceSolution.OrdersService main --squash
+
+```
+
+## visualizing Git history
+
+```
+gitk
+```
