@@ -1,4 +1,6 @@
-//App.js
+## Passing data from child to parent
+```javascript
+// App.js
 import React from 'react';
 import './style.css';
 import ParentComponent from './Parent.js';
@@ -9,7 +11,9 @@ export default function App() {
     </div>
   );
 }
-_____________________________________________________________________
+  ```
+
+```javascript
 // Parent.js
 import React, { useState } from 'react';
 import ChildComponent from './Child';
@@ -32,7 +36,9 @@ function ParentComponent() {
 }
 
 export default ParentComponent;
-_________________________________________________________________________
+```
+
+```javascript
 // Child.js
 import React, { useState } from 'react';
 
@@ -58,3 +64,4 @@ function ChildComponent({ onData }) {
 }
 
 export default ChildComponent;
+```
