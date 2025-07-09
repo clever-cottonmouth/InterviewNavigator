@@ -29,9 +29,7 @@ git log --graph --color --decorate --oneline --all
 
 gitk --all
 
-
-
- ## Git to discard uncommitted changes in your working directory
+## Git to discard uncommitted changes in your working directory
 
 ```
 git restore .
@@ -128,4 +126,21 @@ git subtree add --prefix=eCommerceSolution.OrdersService eCommerceSolution.Order
 
 ```
 gitk
+```
+
+# correct way to add a remote Bitbucket repository to your local Git repository:
+
+
+```bash
+git remote add origin https://mirajhad@bitbucket.org/cottonmouth/deal-app.git
+```
+
+```bash
+git push -u origin main
+```
+
+if got some error
+
+```bash
+git pull origin main --allow-unrelated-histories
 ```
