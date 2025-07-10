@@ -102,4 +102,24 @@ State Management: Share application state (e.g., user authentication status, the
 Form Data: Track form input changes across components.
 Real-Time Updates: Reflect changes like notifications or live data feeds.
 
+## Lifecycle Hooks
+OnChanges
+Fired when one or more of the component or directive properties have been changed.
+ 
+OnInit
+Fired when component or directive properties have been initialized.
+ 
+OnDestroy
+Fired when the component or directive instance is destroyed
+
+AfterContentInit
+Fire after the initialization of the content of the component or directive has finished.
+
+AfterContentChecked
+Fire after the view has been fully initialized.
+
+AfterViewInit
+Fires after initializing both the component view and any of its child views. This is a useful lifecycle hook for plugins
+outside of the Angular 2 ecosystem. For example, you could use this method to initialize a jQuery date picker based on the markup that Angular 2 has rendered.
+
 
