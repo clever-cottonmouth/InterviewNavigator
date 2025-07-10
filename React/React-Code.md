@@ -1,4 +1,5 @@
 ## Passing data from child to parent
+
 ```javascript
 // App.js
 import React from 'react';
@@ -11,7 +12,7 @@ export default function App() {
     </div>
   );
 }
-  ```
+```
 
 ```javascript
 // Parent.js
@@ -64,4 +65,103 @@ function ChildComponent({ onData }) {
 }
 
 export default ChildComponent;
+```
+
+## Passing Data from Parent to Child Component in React
+
+```javascript
+//App.js
+import React from 'react';
+import Parent from './Parent';
+
+export default function App() {
+  return (
+    <div>
+      <Parent />
+    </div>
+  );
+}
+```
+
+```javascript
+//Child.js
+import React from 'react';
+
+const Child = (props) => {
+  return (
+    <>
+      <div>{props.sendData}</div>
+    </>
+  );
+};
+export default Child;
+```
+
+```javascript
+//Parent.js
+import React, { useState } from 'react';
+import Child from './Child';
+const Parent = () => {
+  const [data, setData] = useState('');
+  const [show, setShow] = useState('');
+  function sendData() {
+    setData(show);
+  }
+  function loadData(e) {
+    setShow(e.target.value);
+  }
+  return (
+    <>
+      <Child sendData={data} />
+      <input onChange={(e) => loadData(e)} />
+      <button onClick={sendData}>Click</button>
+    </>
+  );
+};
+export default Parent;
+```
+## Redux Toolkit Example
+```javascript
+//AuthSlice.js
+import { createSlice } from "@reduxjs/toolkit";
+
+const initialState = {
+  status: false,
+  userData: "",
+};
+export const authSlice = createSlice({
+  name: "auth",
+  initialState,
+  reducers: {
+    login: (state, action) => {
+      state.status = true;
+      state.userData = action.payload;
+    },
+    logout: (state) => {
+      state.status = false;
+      state.userData = null;
+    },
+  },
+});
+
+export const { login, logout } = authSlice.actions;
+export default authSlice.reducer;
+```
+
+```javascript
+//store.js
+import { configureStore} from "@reduxjs/toolkit";
+import authReducer from "./authSlice";
+export const store = configureStore({
+    reducer:{
+        auth:authReducer
+    }
+})
+```
+```javascript
+//Use
+import {useDispatch, useSelector} from "react-redux"
+const authStatus = useSelector((state) => state.auth.status);
+const dispatch = useDispatch();
+dispatch(authLogin(response.data));
 ```
