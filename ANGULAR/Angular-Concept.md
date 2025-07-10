@@ -4,13 +4,16 @@ subject
 
 pipe
 
+of
 
 ## Differences between mergeMap, concatMap, and switchMap.
+
 mergeMap
 Behavior: Flattens multiple inner Observables and subscribes to them concurrently. All results are emitted as they complete, regardless of order.
 When to Use: Use when you want to process multiple API calls in parallel and collect all results.
 Drawback: No guaranteed order of results; can be resource-intensive if many Observables are active simultaneously.
 Example:typescript
+
 ```typescript
 import { of } from 'rxjs';
 import { mergeMap, delay } from 'rxjs/operators';
@@ -31,10 +34,10 @@ API call for 1
 Here, mergeMap runs all API calls concurrently, and results are emitted as they arrive (faster calls complete first).
 
 2. concatMap
-Behavior: Maps each value to an Observable and subscribes to them one at a time, waiting for the current inner Observable to complete before subscribing to the next. Maintains the order of the source Observable.
-When to Use: Use for sequential API calls where the order of execution and results matters, or when the second API depends on the first completing.
-Drawback: Slower, as it waits for each inner Observable to complete before moving to the next.
-Example (for your API dependency scenario):typescript
+   Behavior: Maps each value to an Observable and subscribes to them one at a time, waiting for the current inner Observable to complete before subscribing to the next. Maintains the order of the source Observable.
+   When to Use: Use for sequential API calls where the order of execution and results matters, or when the second API depends on the first completing.
+   Drawback: Slower, as it waits for each inner Observable to complete before moving to the next.
+   Example (for your API dependency scenario):typescript
 
 ```typescript
 import { Component } from '@angular/core';
@@ -59,10 +62,11 @@ Behavior:The first API (/user) is called, and only after it completes does the s
 Results are emitted in the order of the source Observable.
 
 1. switchMap
-Behavior: Maps each value to an Observable and subscribes to the latest one, canceling any previous in-flight Observables if a new value is emitted.
-When to Use: Use when you only care about the latest result, such as in search-as-you-type scenarios or when a new API call invalidates previous ones.
-Drawback: Cancels previous requests, so you may lose results from earlier Observables.
-Example:typescript
+   Behavior: Maps each value to an Observable and subscribes to the latest one, canceling any previous in-flight Observables if a new value is emitted.
+   When to Use: Use when you only care about the latest result, such as in search-as-you-type scenarios or when a new API call invalidates previous ones.
+   Drawback: Cancels previous requests, so you may lose results from earlier Observables.
+   Example:typescript
+
 ```typescript
 import { of } from 'rxjs';
 import { switchMap, delay } from 'rxjs/operators';
@@ -73,10 +77,29 @@ source.pipe(
 ).subscribe(result => console.log(result));
 
 ```
+
 Output:
 
 API call for 3
 
 Only the result of the last emission (3) is logged because switchMap cancels previous Observables when a new value arrives.
+
+## BehaviourSubject
+
+A BehaviorSubject in Angular (part of the RxJS library) is a special type of Subject that holds a current value and emits it to new subscribers immediately upon subscription. Unlike a regular Subject, it always has a value, even if no events have been emitted yet, making it useful for representing state that components can rely on.Key Characteristics of BehaviorSubjectInitial Value: Requires an initial value when created.
+Current Value Access: Subscribers get the most recent value (or initial value) immediately upon subscription.
+Multiple Subscribers: Like other Subjects, it supports multiple subscribers, and all receive the same value when next() is called.
+State Management: Often used to hold and share state (e.g., user data, form state) across components.
+Common Methods
+
+next(value): Emits a new value to all subscribers.
+getValue(): Retrieves the current value of the BehaviorSubject.
+subscribe(): Allows components to subscribe to value changes.
+asObservable(): Converts the BehaviorSubject to an Observable to prevent external code from calling next().
+
+Use Cases
+State Management: Share application state (e.g., user authentication status, theme settings).
+Form Data: Track form input changes across components.
+Real-Time Updates: Reflect changes like notifications or live data feeds.
 
 
