@@ -100,3 +100,4 @@ After the view is initialized (ngAfterViewInit), the parent can access the child
 Caution: This tightly couples the parent and child, which may not be ideal for reusable components.
 
 Use Case: Suitable for scenarios where the parent needs direct access to the child’s state, but use sparingly to maintain loose coupling.
+

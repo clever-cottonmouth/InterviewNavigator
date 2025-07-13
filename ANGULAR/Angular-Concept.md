@@ -103,12 +103,13 @@ Form Data: Track form input changes across components.
 Real-Time Updates: Reflect changes like notifications or live data feeds.
 
 ## Lifecycle Hooks
+
 OnChanges
 Fired when one or more of the component or directive properties have been changed.
- 
+
 OnInit
 Fired when component or directive properties have been initialized.
- 
+
 OnDestroy
 Fired when the component or directive instance is destroyed
 
@@ -121,5 +122,144 @@ Fire after the view has been fully initialized.
 AfterViewInit
 Fires after initializing both the component view and any of its child views. This is a useful lifecycle hook for plugins
 outside of the Angular 2 ecosystem. For example, you could use this method to initialize a jQuery date picker based on the markup that Angular 2 has rendered.
+
+## Data Binding
+
+Data binding in Angular is a mechanism that synchronizes the data between the component (TypeScript) and the template (HTML). It enables dynamic updates to the UI when the underlying data changes and vice versa. Angular supports several types of data binding, which I’ll outline below with concise explanations and examples.Types of Data BindingInterpolation (One-Way Binding: Component to View)  Uses double curly braces {{ }} to display component data in the template.
+Data flows from the component to the view.
+
+```typescript
+// Component
+export class AppComponent {
+  title = 'Hello, Angular!';
+}
+```
+
+```html
+<!-- Template -->
+<h1>{{ title }}</h1>
+```
+
+Output: Displays "Hello, Angular!" in the UI.
+
+Property Binding (One-Way Binding: Component to View)  Binds a component property to an HTML element property using square brackets [ ].
+
+```typescript
+
+// Component
+export class AppComponent {
+  isDisabled = true;
+}
+```
+
+```html
+<!-- Template -->
+<button [disabled]="isDisabled">Click me</button>
+```
+
+Output: The button is disabled based on the isDisabled property.
+
+Event Binding (One-Way Binding: View to Component)  Binds DOM events to component methods using parentheses ( ).
+
+```typescript
+// Component
+export class AppComponent {
+  handleClick() {
+    console.log('Button clicked!');
+  }
+}
+```
+
+```html
+<!-- Template -->
+<button (click)="handleClick()">Click me</button>
+```
+
+Output: Logs "Button clicked!" to the console when the button is clicked.
+
+**Two-Way Binding**  Combines property and event binding to synchronize data between component and view.
+Uses [(ngModel)] directive (requires FormsModule to be imported).
+
+```typescript
+// Component
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+
+@Component({
+  selector: 'app-root',
+  template: `<input [(ngModel)]="name" placeholder="Enter name">
+             <p>You entered: {{ name }}</p>`,
+  standalone: true,
+  imports: [FormsModule]
+})
+export class AppComponent {
+  name = '';
+}
+```
+
+Output: The input field and the paragraph update simultaneously as the user types.
+
+Attribute Binding  Binds component data to HTML attributes (not properties) using [attr.].
+
+```typescript
+
+// Component
+export class AppComponent {
+  colSpanValue = 2;
+}
+```
+
+```html
+<!-- Template -->
+<td [attr.colspan]="colSpanValue">Spanning columns</td>
+```
+
+Output: The `<td>` element spans 2 columns.
+
+Class and Style Binding  Dynamically apply CSS classes or styles based on component logic.
+Class Binding
+
+```typescript
+
+// Component
+export class AppComponent {
+  isActive = true;
+}
+```
+
+```html
+<!-- Template -->
+<div [class.active]="isActive">Conditional Class</div>
+```
+
+```css
+.active { background-color: lightblue; }
+```
+
+Output: The div has a light blue background if isActive is true.
+Style Binding
+
+```html
+
+<div [style.backgroundColor]="isActive ? 'lightblue' : 'white'">Conditional Style</div>
+```
+
+Key PointsOne-Way Binding: Data flows either from component to view (interpolation, property binding) or view to component (event binding).
+Two-Way Binding: Requires FormsModule for ngModel and is useful for form inputs.
+Performance: Angular’s change detection automatically updates the UI when bound data changes, but overuse of two-way binding can impact performance in large applications.
+Directives: Structural directives like *ngIf and *ngFor often work with data binding to conditionally render or iterate over elements.
+
+
+## Angular Directives
+Angular directives are special markers (attributes or elements) in the DOM that extend HTML functionality or manipulate the DOM in Angular applications. They allow you to attach behavior to elements, modify their structure, or create reusable components. Angular has three main types of directives: Component Directives, Structural Directives, and Attribute Directives. 
+
+Defined using the @Component decorator, they encapsulate HTML, CSS, and TypeScript logic.
+Identified by a leading asterisk (*) in templates. *ngif
+Modify the behavior or appearance of an element without altering the DOM structure. ngClass
+
+
+
+
+
 
 
