@@ -235,3 +235,13 @@ you  **cannot inherit a private class** .
 Yes, you can inherit an abstract class in C#.
 
 Yes, in C#, you can inherit one interface from another.
+
+## Stack and Heap Memory
+Stack Memory:Stores value types (e.g., int, struct) and method data (e.g., local variables, return addresses).
+Fast, fixed-size, scope-based (auto-cleared when method ends).
+Thread-specific, inherently thread-safe.
+
+Heap Memory:Stores reference types (e.g., class, string, arrays).
+Dynamic, managed by Garbage Collector (GC) for allocation/deallocation.
+Slower, shared across threads, requires synchronization.
+

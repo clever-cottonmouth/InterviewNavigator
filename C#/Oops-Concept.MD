@@ -213,6 +213,22 @@ Protected:- members can be used in the derived classess, but they can't be used 
 
 # Constructor
 
-private constructor
+we can define the constructors in C# are the special types of methods of a class that are executed whenever we create an instance (object) of that class. The Constructors are responsible for two things. One is the object initialization and the other one is memory allocation. The role of the new keyword is to create the object and the role of the constructor is to initialize the variables.
+
+The compiler defined this constructor for us. And we call this an Implicit Constructor. And if we defined the same thing, then it is called an explicit constructor.
+
+If we don’t have a constructor, then we cannot create an instance of the class.
+
+**Static Constructor**
+
+In a static constructor, you cannot use any access specifiers like public, private, and protected.
+
+Static Constructors are responsible for initializing static variables and these constructors are never called explicitly. They are called Implicitly and moreover, these constructors are the first to execute in any class
+
+Static Constructors cannot be parameterized, so overloading of the static constructors is not possible in C#.
+
+**private constructor**
 
 When a class contains a private constructor then we cannot create an object for the class outside of the class. So, private constructors are used to create an object for the class within the same class. Generally, private constructors are used in the Remoting concept.
+
+We need to use the private constructor in C# when the class contains only static members.
