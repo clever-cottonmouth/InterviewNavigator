@@ -91,56 +91,51 @@ I'm B
 I'm A
 ```
 
-# Ref Keyword
+# Ref and Out
 
-```
-class Student
+when you want multiple outputs from a function, then you need to use the ref and out parameters in C#.
+
+if you are declaring some out variables, then it is mandatory or compulsory to initialize or update the out variables inside the method body else we will get a compiler error. But with the ref, updating the ref variable inside a method is optional.
+
+initializing the ref parameter is mandatory before passing such variables to the method while initializing the out-parameter variables is optional in C#.
+
+**Note:** The point that you need to remember is that the ref keyword is used to pass data pass in bi-directional and the out keyword is used to pass the data only in unidirectional i.e. returning the data.
+
+```csharp
+using System;
+namespace RefvsOutDemo
 {
-    //public field
-    public int grade = 2;
-
-    //public method
-    public void PrintGrade()
+    class Program
     {
-        System.Console.WriteLine("Grade: " + grade);
-    }
-
-    //public method with ref return
-    public ref int DoWork()
-    {
-        //return reference of 'grade' field
-        return ref grade;
+        static void Main(string[] args)
+        {
+            //First Declare the Variables
+            int Addition = 0;
+            int Multiplication = 0;
+            int Subtraction = 0;
+            int Division = 0;
+            //While calling the Method, decorate the out keyword for out arguments
+            //Addition, Multiplication, Subtraction, and Division variables values will be updated by Math Function
+            Math(200, 100, out Addition, out Multiplication, out Subtraction, out Division);
+            Console.WriteLine($"Addition: {Addition}");
+            Console.WriteLine($"Multiplication: {Multiplication}");
+            Console.WriteLine($"Subtraction: {Subtraction}");
+            Console.WriteLine($"Division: {Division}");
+          
+            Console.ReadKey();
+        }
+        //Declaring Method with out Parameters
+        public static void Math(int number1, int number2, out int Addition,
+            out int Multiplication, out int Subtraction, out int Division)
+        {
+            Addition = number1 + number2; //This will Update the Addition variable Declared in Main Method
+            Multiplication = number1 * number2; //This will Update the Multiplication variable Declared in Main Method
+            Subtraction = number1 - number2; //This will Update the Subtraction variable Declared in Main Method
+            Division = number1 / number2; //This will Update the Division variable Declared in Main Method
+        }
     }
 }
-
-class Program
-{
-    static void Main()
-    {
-        //creating object of Student
-        Student s = new Student();
-
-        //call PrintGrade
-        s.PrintGrade();
-
-        //call DoWork
-        ref int g = ref s.DoWork();
-
-        //update the value of 'ref return'
-        g = 5;
-
-        //call PrintGrade after updating the value of 'ref return'
-        s.PrintGrade(); //Output: 5
-
-        System.Console.ReadKey();
-    }
-}
-
 ```
-
-# Out Keyword
-
-The `out` keyword is especially useful when a method needs to return more than one value since more than one `out` parameter can be used
 
 # Type Conversion
 
@@ -237,6 +232,7 @@ Yes, you can inherit an abstract class in C#.
 Yes, in C#, you can inherit one interface from another.
 
 ## Stack and Heap Memory
+
 Stack Memory:Stores value types (e.g., int, struct) and method data (e.g., local variables, return addresses).
 Fast, fixed-size, scope-based (auto-cleared when method ends).
 Thread-specific, inherently thread-safe.
@@ -245,3 +241,20 @@ Heap Memory:Stores reference types (e.g., class, string, arrays).
 Dynamic, managed by Garbage Collector (GC) for allocation/deallocation.
 Slower, shared across threads, requires synchronization.
 
+## **What is a Collection in C#?**
+
+So in simple words, we can say a Collection in C# is a dynamic array**.** That means the collections in C# have the capability of storing multiple values but with the following features.
+
+1. Size can be increased dynamically.
+2. We can insert an element into the middle of a collection.
+3. It also provides the facility to remove or delete elements from the middle of a collection.
+
+The collections in C# are classes that represent a group of objects. With the help of C# Collections, we can perform different types of operations on objects such as Store, Update, Delete, Retrieve, Search, and Sort objects, etc. In short, all the data structure work can be performed by collections in C#. That means Collections standardize the way in which the objects are handled by our program.
+
+##### **Types of Collections in C#**
+
+There are 3 ways to work with collections. The three namespaces are given below:
+
+1. System.Collections classes
+2. System.Collections.Generic classes
+3. System.Collections.Concurrent classes
