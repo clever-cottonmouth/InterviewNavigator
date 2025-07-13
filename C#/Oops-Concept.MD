@@ -61,6 +61,8 @@ RT - Method Overriding
 
 Method overloading deals with the notion of having two or more methods in the same class with the same name but different arguments.
 
+Return Type is not considered as part of Method Overloading
+
 void foo(int a)
 void foo(int a, float b)
 
@@ -125,7 +127,26 @@ public class BaseClass
 }
 ```
 
-# **INTERFACE**
+# **Dynamic Polymorphism or Runtime Polymorphism**
+
+The function call is bounded to the class at the time of compilation, if the function is going to be executed by CLR from a different class at run-time rather than the class bounded at compilation-time, then it is called Run-Time Polymorphism
+
+```csharp
+Class1 obj1 = new Class2();
+obj1.show(); 
+```
+
+
+## **Static Polymorphism or Compile Time Polymorphism**
+
+The function call is bounded to the class at the time of compilation, if the function is going to be executed from the same bounded class at run-time, then it is called Compile-Time Polymorphism
+
+```csharp
+Class1 obj1 = new Class1();
+obj1.show();
+```
+
+## **INTERFACE**
 
 An interface is a contract: An interface is an empty shell. There are only the signatures of the methods, which implies that the methods do not have a body. The interface can't do anything. It's just a pattern.
 
@@ -232,3 +253,14 @@ Static Constructors cannot be parameterized, so overloading of the static constr
 When a class contains a private constructor then we cannot create an object for the class outside of the class. So, private constructors are used to create an object for the class within the same class. Generally, private constructors are used in the Remoting concept.
 
 We need to use the private constructor in C# when the class contains only static members.
+
+<style>#mermaid-1752419612786{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1752419612786 .error-icon{fill:#552222;}#mermaid-1752419612786 .error-text{fill:#552222;stroke:#552222;}#mermaid-1752419612786 .edge-thickness-normal{stroke-width:2px;}#mermaid-1752419612786 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1752419612786 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1752419612786 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1752419612786 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1752419612786 .marker{fill:#333333;}#mermaid-1752419612786 .marker.cross{stroke:#333333;}#mermaid-1752419612786 svg{font-family:sans-serif;font-size:16px;}#mermaid-1752419612786 .label{font-family:sans-serif;color:#333;}#mermaid-1752419612786 .label text{fill:#333;}#mermaid-1752419612786 .node rect,#mermaid-1752419612786 .node circle,#mermaid-1752419612786 .node ellipse,#mermaid-1752419612786 .node polygon,#mermaid-1752419612786 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1752419612786 .node .label{text-align:center;}#mermaid-1752419612786 .node.clickable{cursor:pointer;}#mermaid-1752419612786 .arrowheadPath{fill:#333333;}#mermaid-1752419612786 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1752419612786 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1752419612786 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1752419612786 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1752419612786 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1752419612786 .cluster text{fill:#333;}#mermaid-1752419612786 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1752419612786:root{--mermaid-font-family:sans-serif;}#mermaid-1752419612786:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1752419612786 flowchart{fill:apa;}</style>
+
+
+<style>#mermaid-1752419615457{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1752419615457 .error-icon{fill:#552222;}#mermaid-1752419615457 .error-text{fill:#552222;stroke:#552222;}#mermaid-1752419615457 .edge-thickness-normal{stroke-width:2px;}#mermaid-1752419615457 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1752419615457 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1752419615457 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1752419615457 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1752419615457 .marker{fill:#333333;}#mermaid-1752419615457 .marker.cross{stroke:#333333;}#mermaid-1752419615457 svg{font-family:sans-serif;font-size:16px;}#mermaid-1752419615457 .label{font-family:sans-serif;color:#333;}#mermaid-1752419615457 .label text{fill:#333;}#mermaid-1752419615457 .node rect,#mermaid-1752419615457 .node circle,#mermaid-1752419615457 .node ellipse,#mermaid-1752419615457 .node polygon,#mermaid-1752419615457 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1752419615457 .node .label{text-align:center;}#mermaid-1752419615457 .node.clickable{cursor:pointer;}#mermaid-1752419615457 .arrowheadPath{fill:#333333;}#mermaid-1752419615457 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1752419615457 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1752419615457 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1752419615457 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1752419615457 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1752419615457 .cluster text{fill:#333;}#mermaid-1752419615457 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1752419615457:root{--mermaid-font-family:sans-serif;}#mermaid-1752419615457:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1752419615457 flowchart{fill:apa;}</style>
+
+
+<style>#mermaid-1752419615663{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1752419615663 .error-icon{fill:#552222;}#mermaid-1752419615663 .error-text{fill:#552222;stroke:#552222;}#mermaid-1752419615663 .edge-thickness-normal{stroke-width:2px;}#mermaid-1752419615663 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1752419615663 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1752419615663 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1752419615663 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1752419615663 .marker{fill:#333333;}#mermaid-1752419615663 .marker.cross{stroke:#333333;}#mermaid-1752419615663 svg{font-family:sans-serif;font-size:16px;}#mermaid-1752419615663 .label{font-family:sans-serif;color:#333;}#mermaid-1752419615663 .label text{fill:#333;}#mermaid-1752419615663 .node rect,#mermaid-1752419615663 .node circle,#mermaid-1752419615663 .node ellipse,#mermaid-1752419615663 .node polygon,#mermaid-1752419615663 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1752419615663 .node .label{text-align:center;}#mermaid-1752419615663 .node.clickable{cursor:pointer;}#mermaid-1752419615663 .arrowheadPath{fill:#333333;}#mermaid-1752419615663 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1752419615663 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1752419615663 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1752419615663 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1752419615663 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1752419615663 .cluster text{fill:#333;}#mermaid-1752419615663 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1752419615663:root{--mermaid-font-family:sans-serif;}#mermaid-1752419615663:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1752419615663 flowchart{fill:apa;}</style>
+
+
+<style>#mermaid-1752419615866{font-family:sans-serif;font-size:16px;fill:#333;}#mermaid-1752419615866 .error-icon{fill:#552222;}#mermaid-1752419615866 .error-text{fill:#552222;stroke:#552222;}#mermaid-1752419615866 .edge-thickness-normal{stroke-width:2px;}#mermaid-1752419615866 .edge-thickness-thick{stroke-width:3.5px;}#mermaid-1752419615866 .edge-pattern-solid{stroke-dasharray:0;}#mermaid-1752419615866 .edge-pattern-dashed{stroke-dasharray:3;}#mermaid-1752419615866 .edge-pattern-dotted{stroke-dasharray:2;}#mermaid-1752419615866 .marker{fill:#333333;}#mermaid-1752419615866 .marker.cross{stroke:#333333;}#mermaid-1752419615866 svg{font-family:sans-serif;font-size:16px;}#mermaid-1752419615866 .label{font-family:sans-serif;color:#333;}#mermaid-1752419615866 .label text{fill:#333;}#mermaid-1752419615866 .node rect,#mermaid-1752419615866 .node circle,#mermaid-1752419615866 .node ellipse,#mermaid-1752419615866 .node polygon,#mermaid-1752419615866 .node path{fill:#ECECFF;stroke:#9370DB;stroke-width:1px;}#mermaid-1752419615866 .node .label{text-align:center;}#mermaid-1752419615866 .node.clickable{cursor:pointer;}#mermaid-1752419615866 .arrowheadPath{fill:#333333;}#mermaid-1752419615866 .edgePath .path{stroke:#333333;stroke-width:1.5px;}#mermaid-1752419615866 .flowchart-link{stroke:#333333;fill:none;}#mermaid-1752419615866 .edgeLabel{background-color:#e8e8e8;text-align:center;}#mermaid-1752419615866 .edgeLabel rect{opacity:0.5;background-color:#e8e8e8;fill:#e8e8e8;}#mermaid-1752419615866 .cluster rect{fill:#ffffde;stroke:#aaaa33;stroke-width:1px;}#mermaid-1752419615866 .cluster text{fill:#333;}#mermaid-1752419615866 div.mermaidTooltip{position:absolute;text-align:center;max-width:200px;padding:2px;font-family:sans-serif;font-size:12px;background:hsl(80,100%,96.2745098039%);border:1px solid #aaaa33;border-radius:2px;pointer-events:none;z-index:100;}#mermaid-1752419615866:root{--mermaid-font-family:sans-serif;}#mermaid-1752419615866:root{--mermaid-alt-font-family:sans-serif;}#mermaid-1752419615866 flowchart{fill:apa;}</style>
