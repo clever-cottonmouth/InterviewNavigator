@@ -153,16 +153,6 @@ WHERE department = 'Sales';
 
 END
 
-# Temporary Table
-
-A temporary table in SQL is a table that exists temporarily and is typically used to store intermediate results that you need to access multiple times within a session.
-
-CREATE TABLE #TempTable (
-    ID INT PRIMARY KEY,
-    Name NVARCHAR(50),
-    Age INT
-);
-
 # friend salary
 
 SELECT St.Name
@@ -309,20 +299,19 @@ Most asked SQL Interview Questions
 66. Difference between Function and Store procedure ?
 67. How would you optimize a slow SQL query?
 68. Difference between INNER JOIN and OUTER JOIN?
-69. How do you handle duplicate rows in a SQL query?
-70. Write a SQL query to find the top 3 departments with the highest average salary.
-71. Write a SQL query to find the employees who have the same name and work in the same department.
-72. Write a SQL query to find the departments with no employees.
-73. How do you use indexing to improve SQL query performance?
-74. Write a SQL query to find the employees who have worked for more than 5 years.
-75. What is the difference between SUBQUERY and JOIN?
-76. Write a SQL query to find the top 2 products with the highest sales.
-77. How do you use stored procedures to improve SQL query performance?
-78. Write a SQL query to find the customers who have placed an order but have not made a payment.
-79. Write a SQL query to find the employees who work in the same department as their manager.
-80. How do you use window functions to solve complex queries?
-81. Write a SQL query to find the top 3 products with the highest average price.
-82. Write a SQL query to find the employees who have not taken any leave in the last 6 months
+69. 
+70. Write a SQL query to find the employees who have the same name and work in the same department.
+71. Write a SQL query to find the departments with no employees.
+72. How do you use indexing to improve SQL query performance?
+73. 
+74. What is the difference between SUBQUERY and JOIN?
+75. Write a SQL query to find the top 2 products with the highest sales.
+76. How do you use stored procedures to improve SQL query performance?
+77. Write a SQL query to find the customers who have placed an order but have not made a payment.
+78. 
+79. How do you use window functions to solve complex queries?
+80. Write a SQL query to find the top 3 products with the highest average price.
+81. Write a SQL query to find the employees who have not taken any leave in the last 6 months
 
 SQL Must Know Differences:
 

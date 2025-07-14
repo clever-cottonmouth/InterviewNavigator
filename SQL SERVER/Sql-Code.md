@@ -1,4 +1,5 @@
 --==================================DUPLICATE EMAILS
+
 ```sql
 SELECT MIN(id) AS id,
 TRIM(LOWER(email)) AS cleaned_email
@@ -6,7 +7,9 @@ FROM users
 GROUP BY cleaned_email
 ORDER BY id
 ```
+
 --=================================Highest salary each departments
+
 ```sql
 select
 d.name as department_name
@@ -23,4 +26,39 @@ department_id
 from employees
 group by 1)
 order by d.name
+```
+
+## How do you handle duplicate rows in a SQL query?
+
+```sql
+SELECT FirstName, LastName, DepartmentID, COUNT(*) as EmployeeCount
+FROM Employees
+GROUP BY FirstName, LastName, DepartmentID
+HAVING COUNT(*) > 1;
+```
+
+## Write a SQL query to find the top 3 departments with the highest average salary.
+
+```sql
+SELECT TOP 3
+    d.DepartmentName,
+    ROUND(AVG(e.Salary), 2) AS AverageSalary
+FROM Employees e
+INNER JOIN Departments d
+    ON e.DepartmentID = d.DepartmentID
+GROUP BY d.DepartmentName
+ORDER BY AverageSalary DESC;
+```
+
+## Write a SQL query to find the employees who have worked for more than 5 years.
+
+```sql
+SELECT 
+    e.EmployeeID,
+    e.FirstName,
+    e.LastName,
+    e.HireDate,
+    DATEDIFF(YEAR, e.HireDate, GETDATE()) AS YearsOfService
+FROM Employees e
+WHERE DATEDIFF(YEAR, e.HireDate, GETDATE()) > 5;
 ```
