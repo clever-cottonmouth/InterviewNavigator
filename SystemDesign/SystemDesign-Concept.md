@@ -60,3 +60,23 @@ Components1. Unit of Work Interface: Defines methods like commit, rollback, and 
 ## Caching
 
 ## Rate Limiting
+
+# What are solid principles ?
+
+S- Single responsibility - Each class should have single job/responsibility.
+O - Open/Closed Principle. Classes must be open to extension but closed to modification.
+L - Liskov principle - If class A is subtype of class B then, Class B should be able to replace Class A with out disrupting the behaviour of our program.
+I - Interface segregation - Clients should not be forced to depend on methods that they do not use.
+D - Dependency inversion - High level modules should not depend on low level modules. Both must depend on abstraction.
+
+# What are DRY, YAGNI, KISS principles ?
+
+DRY- Do not repeat yourself.
+Avoid duplication. Makes the software more maintainable and less error-prone.
+
+YAGNI - You are not going to need it.
+Avoid unnecessary features/functionalities to the software. This helps software focussed on essential requirements and makes it more maintainable.
+
+KISS: Keep the implementation simple,stupid.
+Keeping the software design and implementation as simple as possible.
+This make software more understandable,maintainable and testable.

@@ -1,62 +1,3 @@
-# What are solid principles ?
-
-S- Single responsibility - Each class should have single job/responsibility.
-O - Open/Closed Principle. Classes must be open to extension but closed to modification.
-L - Liskov principle - If class A is subtype of class B then, Class B should be able to replace Class A with out disrupting the behaviour of our program.
-I - Interface segregation - Clients should not be forced to depend on methods that they do not use.
-D - Dependency inversion - High level modules should not depend on low level modules. Both must depend on abstraction.
-
----
-
-# What are DRY, YAGNI, KISS principles ?
-
-DRY- Do not repeat yourself.
-Avoid duplication. Makes the software more maintainable and less error-prone.
-
-YAGNI - You are not going to need it.
-Avoid unnecessary features/functionalities to the software. This helps software focussed on essential requirements and makes it more maintainable.
-
-KISS: Keep the implementation simple,stupid.
-Keeping the software design and implementation as simple as possible.
-This make software more understandable,maintainable and testable.
-
----
-
----
-
-# Return Type
-
-Return View
-Return partial View
-Redirect
-Redirect To Action
-Return content
-Return JSON
-Return JavaScript
-Return File
-
-# Repository Pattern
-
-Design Pattern to separate the data access layer from application
-
-Provides Interface without exposing implementation
-
-Helps create abstraction
-
-## What is the difference between const and readonly in C#?
-
-`const`: Can't be changed anywhere.
-
-`readonly`: This value can only be changed in the constructor. Can't be changed in normal functions.
-
-# FOR AND FOREACH
-
-The foreach statement is used to iterate through the collection to get the information that you want, but can not be used to add or remove items from the source collection to avoid unpredictable side effects. If you need to add or remove items from the source collection, use a [for](https://learn.microsoft.com/en-us/previous-versions/visualstudio/visual-studio-2008/ch45axte(v=vs.90)) loop.
-
-If you are iterating through a collection of items, and do not care about the index values then foreach is more convenient, easier to write and safer: you can't get the number of items wrong.
-
-If you need to process every second item in a collection for example, or process them ion the reverse order, then a for loop is the only practical way.
-
 # EXTENSION METHODS
 
 Extension method allow us to seemingly add methods to an existing type without modifying this type's source code.
@@ -222,7 +163,6 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 
 Filters in ASP.NET Core Web API are reusable components (attributes or classes) that allow developers to execute custom logic before or after an action method is invoked in a controller. Filters help decouple concerns such as validation, logging, security, and exception handling, making the code more modular and easier to maintain.
 
-
 #### **Types of Filters in ASP.NET Core Web API**
 
 ASP.NET Core provides several types of filters, each serving a specific purpose:
@@ -267,7 +207,6 @@ Resource filters run before all other filters in the pipeline. They are typicall
 * **Example:** A resource filter that checks if data is cached and returns the cached data if available, preventing redundant processing or database calls.
 * **Real-time Use Case:** In a weather forecast API, a resource filter could cache the results of weather data for a particular location. If a user makes a subsequent request for the same location within a certain time frame, the filter can return the cached data instead of querying the database again, thus improving performance and reducing database load.
 
-
 ##### **Scenario: A User Trying to Access a Restricted API Resource**
 
 * **Authorization Filter:** Imagine the user is trying to access a secure admin page. The Authorization Filter first checks if the user is logged in and has the necessary ‘Admin’ role. If the user is not authorized, the filter will block the request and return a 403 Forbidden response.
@@ -275,7 +214,6 @@ Resource filters run before all other filters in the pipeline. They are typicall
 * **Action Filter:** The Action Filter logs the request details, like which parameters were sent, and validates that the input data is correct before passing it to the action method.
 * **Result Filter:** After the action method runs, the Result Filter checks if the response needs to be modified (e.g., adding custom headers, compressing large data).
 * **Exception Filter:** Finally, if any exceptions were thrown during the process (e.g., database errors), the Exception Filter catches them and sends a custom error message.
-
 
 #### **Differences Between Filters and Middleware in ASP.NET Core Web API**
 
@@ -299,30 +237,9 @@ Middleware is ideal for tasks that need to be applied globally across all routes
 * Exception handling
 * Modifying response headers (e.g., adding security headers)
 
-OnExecuted
+## Entity Framework
 
-OnExecuting
-
-**Exception Filters**
-
-* Executes when an exception is raised while executing the action method or result. You can store exception log.
-* Implemented using IExceptionFilter
-
-# Built-in Filters
-
-**Authorization Filters**
-
-1. **[ChildActionOnly] ** : Accepts only child requests (not direct requests).
-2. **[ValidateAntiForgeryToken] ** : Accepts only the requests from same domain. Useful for CSRF security
-3. **[Authorize] ** : Accepts only if the user has logged-in.
-
-**Action Filters**
-
-1. **[ActionName]** : Defines name of action, which is different than method name.
-2. **[NonAction]** : Defines that the method is not an action method.
-3. **[HttpGet] ** : Accepts only GET request.
-4. **[HttpPost] ** : Accepts only POST request.
-5. **[OutputCache] ** : Caches result of action method & delivers the same for subsequent requests.
+Entity Framework (EF) is an open-source Object-Relational Mapping (ORM) framework developed by Microsoft for .NET applications. It simplifies data access by allowing developers to work with database entities as .NET objects, abstracting much of the underlying database interaction, such as writing raw SQL queries. Entity Framework is widely used in C# applications to interact with relational databases like SQL Server, MySQL, PostgreSQL, and others.
 
 # Server Side Validation
 

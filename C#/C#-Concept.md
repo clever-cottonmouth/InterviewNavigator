@@ -236,3 +236,17 @@ There are 3 ways to work with collections. The three namespaces are given below:
 1. System.Collections classes
 2. System.Collections.Generic classes
 3. System.Collections.Concurrent classes
+
+## What is the difference between const and readonly in C#?
+
+`const`: Can't be changed anywhere.
+
+`readonly`: This value can only be changed in the constructor. Can't be changed in normal functions.
+
+# FOR AND FOREACH
+
+The foreach statement is used to iterate through the collection to get the information that you want, but can not be used to add or remove items from the source collection to avoid unpredictable side effects. If you need to add or remove items from the source collection, use a for loop.
+
+If you are iterating through a collection of items, and do not care about the index values then foreach is more convenient, easier to write and safer: you can't get the number of items wrong.
+
+If you need to process every second item in a collection for example, or process them ion the reverse order, then a for loop is the only practical way.
