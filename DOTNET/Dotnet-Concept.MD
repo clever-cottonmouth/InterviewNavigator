@@ -343,3 +343,147 @@ ASP.NET Core supports several types of caching:
 * **In-memory Caching:** In this case, data is stored in the web server’s Memory (RAM). This is simple to implement, very fast, and ideal for single-server scenarios.
 * **Distributed Caching:** In this case, it uses external cache stores like Redis or SQL Server. This is suitable for applications running on multiple servers in a load-balancing environment.
 * **Response Caching:** In this case, it caches the responses of HTTP requests to improve the response time for similar requests. Stores the output of a request and reuses it for similar requests.
+
+## Dependency Injection
+
+In .NET, dependency injection (DI) is a core feature, especially in ASP.NET Core, where it’s built into the framework. The three main types of dependency injection—Constructor Injection, Setter Injection, and Interface Injection—are all supported, with Constructor Injection being the most commonly used. Below, I’ll explain how each type is implemented in .NET, focusing on ASP.NET Core’s DI container, and provide practical examples.**1. **Constructor Injection*** **Description**: Dependencies are injected via the constructor of a class. This is the default and recommended approach in .NET Core.
+
+* **How It Works**: Services are registered in the DI container (typically in **Program.cs** or **Startup.cs** for older versions) and automatically injected into constructors of classes like controllers, services, or other components.
+* **Pros**:
+
+  * **Ensures dependencies are provided at object creation.**
+  * **Promotes immutability (dependencies are typically private readonly).**
+  * **Easy to test with mocked dependencies.**
+* **Cons**:
+
+  * **Can lead to verbose constructor signatures for many dependencies.**
+* **Example**:
+  **csharp**
+
+  ```csharp
+  // Service interface and implementation
+  publicinterfaceIDatabase
+  {
+  stringGetData();
+  }
+
+  publicclassMySQLDatabase:IDatabase
+  {
+  publicstringGetData()=>"Data from MySQL";
+  }
+
+  // Service consuming the dependency
+  publicclassUserService
+  {
+  privatereadonlyIDatabase _database;
+
+  publicUserService(IDatabase database)
+  {
+          _database = database;
+  }
+
+  publicstringFetchData()=> _database.GetData();
+  }
+
+  // Register services in Program.cs (ASP.NET Core)
+  var builder = WebApplication.CreateBuilder(args);
+  builder.Services.AddScoped<IDatabase, MySQLDatabase>();
+  builder.Services.AddScoped<UserService>();
+
+  // Usage in a controller
+  publicclassHomeController:Controller
+  {
+  privatereadonlyUserService _userService;
+
+  publicHomeController(UserService userService)
+  {
+          _userService = userService;
+  }
+
+  publicIActionResultIndex()
+  {
+  returnContent(_userService.FetchData());
+  }
+  }
+  ```
+* **Registration**: Services are registered with lifetimes (**AddScoped**, **AddTransient**, or **AddSingleton**) in the DI container.
+
+2. **Setter Injection*** **Description**: Dependencies are injected via public properties or methods after object creation. In .NET, this is less common but supported using property injection or manual setter methods.
+
+* **How It Works**: The DI container or manual code sets dependencies via properties. ASP.NET Core’s DI doesn’t natively support property injection, but you can use third-party libraries like Autofac or manually implement it.
+* **Pros**:
+
+  * **Useful for optional dependencies.**
+  * **Allows changing dependencies post-construction.**
+* **Cons**:
+
+  * **Object may be in an invalid state if the dependency isn’t set.**
+  * **Less explicit than constructor injection.**
+* **Example** (Manual Setter Injection):
+  **csharp**
+
+  ```csharp
+  publicclassUserService
+  {
+  privateIDatabase _database;
+
+  publicIDatabase Database
+  {
+  set=> _database =value;
+  }
+
+  publicstringFetchData()=> _database?.GetData()??"No database set";
+  }
+
+  // Manual usage
+  var service =newUserService();
+  service.Database =newMySQLDatabase();
+  Console.WriteLine(service.FetchData());// Output: Data from MySQL
+  ```
+* **With Third-Party DI (e.g., Autofac)**:
+  **csharp**
+
+  ```csharp
+  // In Autofac module
+  builder.RegisterType<UserService>().PropertiesAutowired();
+  ```
+
+  Note: ASP.NET Core’s built-in DI doesn’t support property injection, so you’d need a library like Autofac.
+
+3. **Interface Injection*** **Description**: Dependencies are injected by implementing an interface that defines an injection method. This is rare in .NET and not natively supported by the built-in DI container.
+
+* **How It Works**: A class implements an interface with a method to inject dependencies. You’d typically manage this manually or with a custom DI framework.
+* **Pros**:
+
+  * **Highly customizable for specific use cases.**
+* **Cons**:
+
+  * **Complex and non-standard in .NET.**
+  * **Couples the class to a specific injection interface.**
+* **Example**:
+  **csharp**
+
+  ```csharp
+  publicinterfaceIDependencyInjector
+  {
+  voidInjectDatabase(IDatabase database);
+  }
+
+  publicclassUserService:IDependencyInjector
+  {
+  privateIDatabase _database;
+
+  publicvoidInjectDatabase(IDatabase database)
+  {
+          _database = database;
+  }
+
+  publicstringFetchData()=> _database.GetData();
+  }
+
+  // Manual usage
+  var service =newUserService();
+  service.InjectDatabase(newMySQLDatabase());
+  Console.WriteLine(service.FetchData());
+  ```
+* **Note**: Interface injection is uncommon in .NET due to its complexity and lack of native support. Constructor injection is preferred.

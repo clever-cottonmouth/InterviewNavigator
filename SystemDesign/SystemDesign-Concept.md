@@ -1,4 +1,4 @@
-## **What **is **DDD?**
+## What is **DDD?**
 
 Benefits of DDD in System DesignBusiness Alignment: The software reflects real-world business processes, improving usability and relevance.
 
@@ -17,9 +17,23 @@ Query: Handles read operations (e.g., fetching data). Queries retrieve data with
 
 ## GRPC
 
+gRPC is a high-performance, open-source framework for remote procedure calls (RPC) developed by Google. It uses HTTP/2 for transport, Protocol Buffers (Protobuf) for efficient data serialization, and supports multiple programming languages. gRPC is designed for low-latency, scalable, and distributed systems, making it ideal for microservices, mobile apps, and real-time communication.**Key features:* Bidirectional streaming: Supports client-streaming, server-streaming, and bidirectional streaming.
+
+* Strong typing: Uses Protobuf for defining service contracts, ensuring type safety.
+* Efficient: Binary serialization reduces payload size compared to JSON/XML.
+* Language support: Includes C++, Java, Python, Go, Node.js, and more.
+* Authentication: Supports TLS and token-based authentication.
+
+Use cases:* Microservices communication
+
+* Real-time data streaming
+* Cross-platform APIs
+
+To get started, define a .proto file with your service and message definitions, compile it using a Protobuf compiler, and implement the client and server logic in your preferred language.
+
 # NGINX
 
-![1752334332964](https://github.com/clever-cottonmouth/Image-Storage/blob/main/SystemDesign/nginx.png)
+NGINX is a high-performance web server, reverse proxy, and load balancer known for its speed, stability, and low resource usage. It’s widely used for serving static content, proxying requests to application servers, and handling tasks like caching, load balancing, and SSL termination.
 
 # N8N
 
@@ -91,6 +105,17 @@ This make software more understandable,maintainable and testable.
 
 ## Facade Design Pattern
 
+The Facade Design Pattern is a structural pattern that provides a simplified interface to a complex system of classes, libraries, or frameworks. The primary goal of the Facade pattern is to present a clear, simplified, and minimized interface to the external clients while delegating all the complex underlying operations to the appropriate classes within the system. The Facade (usually a wrapper) class sits on the top of a group of subsystems and allows them to communicate in a unified manner.
+
+As the name suggests, Facade means the Face of the Building. Suppose you created one building. The people walking outside the building can only see the walls and glass of the Building. The People do not know anything about the wiring, the pipes, the interiors, and other complexities inside the building. That means the Facade hides all the complexities of the building and displays a friendly face to people walking outside the building.
+
+##### Understanding Facade Design Pattern in C# with one Real-Time Example:
+
+* Identify Complex Subsystems: First, identify the complex parts of your system that need simplification. These could be complex libraries or systems with multiple interacting classes.
+* Create a Facade Class: Design a facade class that provides a simple interface to the complex subsystems.
+* Delegate Calls to Subsystems: The facade should delegate the client requests to the appropriate objects within the subsystem. The facade should handle all the intricacies and dependencies of the subsystems.
+* Client Code Interaction: The client interacts with the system through the facade, simplifying its use of the complex subsystems.
+
 ## SAGA Pattern
 
 ## Cheorgphy
@@ -98,6 +123,8 @@ This make software more understandable,maintainable and testable.
 ## Orchestration
 
 ## Strangler Pattern
+
+The Strangler Pattern (or Strangler Fig Pattern) is a software engineering approach used to incrementally replace an existing system (often a legacy system) with a new one. Instead of a complete, high-risk rewrite, the pattern involves gradually building new functionality around the edges of the old system, slowly "strangling" it until the legacy system is fully replaced or significantly reduced.
 
 ## CAP theorem
 
@@ -110,3 +137,5 @@ This make software more understandable,maintainable and testable.
 ## Pub/Sub System
 
 ## CDN
+
+## Event Sourcing
