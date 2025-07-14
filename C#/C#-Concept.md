@@ -153,29 +153,7 @@ Eg: int -> long
 
 # Delegate
 
-using System;
-
-// Delegate declaration
-public delegate int PerformCalculation(int x, int y);
-
-class Program
-{
-    // Method that matches the delegate signature
-    public static int Add(int a, int b)
-    {
-        return a + b;
-    }
-
-    static void Main(string[] args)
-    {
-        // Instantiating the delegate
-        PerformCalculation calc = new PerformCalculation(Add);
-
-    // Calling the method through the delegate
-        int result = calc(5, 3);
-        Console.WriteLine(result); // Output: 8
-    }
-}
+# EVENT
 
 # For And Foreach
 
