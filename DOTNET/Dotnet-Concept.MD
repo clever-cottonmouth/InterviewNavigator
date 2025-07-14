@@ -241,6 +241,10 @@ Middleware is ideal for tasks that need to be applied globally across all routes
 
 Entity Framework (EF) is an open-source Object-Relational Mapping (ORM) framework developed by Microsoft for .NET applications. It simplifies data access by allowing developers to work with database entities as .NET objects, abstracting much of the underlying database interaction, such as writing raw SQL queries. Entity Framework is widely used in C# applications to interact with relational databases like SQL Server, MySQL, PostgreSQL, and others.
 
+## Dapper
+
+Dapper is a lightweight, high-performance Object-Relational Mapping (ORM) library for .NET applications, often referred to as a "micro-ORM." Developed by the team at Stack Overflow, Dapper provides a simple and efficient way to map database query results to .NET objects while maintaining close-to-metal performance by avoiding the heavy abstraction layers found in full-fledged ORMs like Entity Framework (EF). It is widely used in C# applications for scenarios where speed and control over SQL queries are critical.
+
 # Server Side Validation
 
 **ModelState.IsValid:** Checks whether the model object satisfied all the validation rules
