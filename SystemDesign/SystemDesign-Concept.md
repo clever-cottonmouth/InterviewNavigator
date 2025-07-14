@@ -80,3 +80,5 @@ Avoid unnecessary features/functionalities to the software. This helps software 
 KISS: Keep the implementation simple,stupid.
 Keeping the software design and implementation as simple as possible.
 This make software more understandable,maintainable and testable.
+
+## Facade Design Pattern
