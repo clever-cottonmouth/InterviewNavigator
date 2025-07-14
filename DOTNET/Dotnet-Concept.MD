@@ -218,38 +218,86 @@ To receive model collections from the controller: `@model List<modelClassNameHer
 * **<form asp-controller=”Account” asp-action=”Login” method=”post”>…`</form>`:** Generates a form element with the appropriate action attribute for the specified controller and action.
 * **`<input asp-for=”Username” />`:** Generates an input field with attributes based on the model property specified by asp-for.
 
-# Types of ActionResult
-
-1. ContentResult: Represents any content with specific content-type.
-2. ViewResult: Represents result of a view.
-3. FileResult: Represents content of a file.
-4. JsonResult: Represents json object / json array.
-5. RedirectResult: Represents redirection to other website (HTTP 302).
-6. RedirectToRouteResult: Represents redirection to a specific action method (HTTP 302).
-7. PartialViewResult: Represents the result of partial view.# ActionFilters# Filter
-
 # Filters
 
-Filters Execute at a specific situation, while executing an action method.
+Filters in ASP.NET Core Web API are reusable components (attributes or classes) that allow developers to execute custom logic before or after an action method is invoked in a controller. Filters help decouple concerns such as validation, logging, security, and exception handling, making the code more modular and easier to maintain.
 
-**Authentication Filters**
 
-* Executes first, before any other filter, to check whether the user is a valid user or not.
-* Implemented using IAuthenticationFilter
+#### **Types of Filters in ASP.NET Core Web API**
 
-**Authorization Filters**
+ASP.NET Core provides several types of filters, each serving a specific purpose:
 
-* Executes first, before any other filter, to check whether the user has permission to execute the action method or not.
-* Implemented using IAuthorizationFilter
+##### **1. Authorization Filters**
 
-**Action Filters**
+Authorization filters run first in the filter pipeline. They handle security concerns such as ensuring that the request is authorized to proceed. These filters are primarily used to authenticate the user and check if the user has the necessary permissions (roles, claims, etc.) to access a specific resource or endpoint.
 
-* Action filters allow us to execute code before or after the execution of action methods in controllers. Action Filters are useful for handling cross-cutting concerns within an application, such as Logging, Authentication, Authorization, Caching, Exception Handling, etc.
-* Implemented using IActionFilter
+* **How It Works:** The Authorization Filter verifies whether the user is authenticated and authorized. For example, it checks whether the user has a valid token and if the user’s role matches the required role to access the resource.
+* **Example:** The [Authorize] attribute is a built-in authorization filter that is applied to controller actions or controllers themselves to ensure only authenticated and authorized users can access certain endpoints.
+* **Real-time Use Case:** In an admin dashboard API endpoint, you can apply the [Authorize(Roles = “Admin”)] filter to ensure that only users with the “Admin” role can access the endpoint. If a user without the “Admin” role tries to access it, the filter will prevent them from doing so and return a 403 Forbidden response.
 
-**Result Filters**
+##### **2. Action Filters**
 
-Result Filters are a specific type of filter that runs after the action method has been executed but before the result is processed and sent to the client. This means that with Result Filters, we can modify the view or the result data before it is returned to the client.
+Action filters execute before and after an action method runs. They are typically used for tasks such as logging, modifying inputs or outputs, or measuring performance. They allow you to add logic before or after the execution of the action method.
+
+* **How It Works:** Action Filters run at two points during the request. Before the action method is executed, they allow you to modify input data or perform validation. After the action method has completed, they allow you to modify the action result or log the output.
+* **Example:** An action filter that logs every incoming request and its parameters for auditing purposes.
+* **Real-time Use Case:** For example, in an e-commerce application, you can log every user activity by using an action filter. Each time a user performs an action like adding an item to the cart or making a purchase, an action filter can log the request and parameters into a log file or database for auditing purposes.
+
+##### **3. Result Filters**
+
+Result filters execute after the action method has run but before the response is sent to the client. They are useful for modifying or logging the final response, such as adding headers, modifying the body, or compressing large response payloads. The result filter provides a final opportunity to alter the response before it’s sent to the client.
+
+* **How It Works:** The Result Filter is executed after the action method has returned its result. It allows you to modify the result before it is sent out, such as adding custom headers, changing the response content, or compressing the response data.
+* **Example:** A result filter that compresses large JSON data before returning it to the client.
+* **Real-time Use Case:** Suppose you are building an API that returns a list of products. If the list is very large, you can apply a result filter to compress the response to make it more efficient for network transfer. For example, you could apply gzip compression to the response before sending it to the client to reduce the payload size.
+
+##### **4. Exception Filters**
+
+Exception filters catch and handle any unhandled exceptions thrown by action methods. They are used to manage errors in a centralized way, returning custom error messages or logging the error details. Exception filters allow you to intercept exceptions and provide user-friendly error responses.
+
+* **How It Works:** Exception Filters are triggered when an unhandled exception is thrown during the execution of an action method. You can catch these exceptions and decide how to handle them, such as logging the error or returning a custom error message to the client.
+* **Example:** An exception filter that catches a database connection failure and returns a custom error message.
+* **Real-time Use Case:** If a user submits an invalid ID in the request body, and the action method attempts to query a database with that invalid ID, an exception filter can catch the resulting error. It could then return a 400 Bad Request status code along with a message detailing the issue (e.g., “Invalid product ID”).
+
+##### **5. Resource Filters**
+
+Resource filters run before all other filters in the pipeline. They are typically used for resource management tasks such as caching, authentication, or processing requests before reaching the action method. These filters are ideal for scenarios where early-stage resource management is required.
+
+* **How It Works:** Resource Filters are executed before authorization filters and action filters. They are often used for tasks like caching results or managing resources, such as limiting the number of concurrent requests to a resource.
+* **Example:** A resource filter that checks if data is cached and returns the cached data if available, preventing redundant processing or database calls.
+* **Real-time Use Case:** In a weather forecast API, a resource filter could cache the results of weather data for a particular location. If a user makes a subsequent request for the same location within a certain time frame, the filter can return the cached data instead of querying the database again, thus improving performance and reducing database load.
+
+
+##### **Scenario: A User Trying to Access a Restricted API Resource**
+
+* **Authorization Filter:** Imagine the user is trying to access a secure admin page. The Authorization Filter first checks if the user is logged in and has the necessary ‘Admin’ role. If the user is not authorized, the filter will block the request and return a 403 Forbidden response.
+* **Resource Filter:** Next, the Resource Filter checks if the data (e.g., a list of users) is cached. If it is, the filter serves the cached data, saving time and reducing database load.
+* **Action Filter:** The Action Filter logs the request details, like which parameters were sent, and validates that the input data is correct before passing it to the action method.
+* **Result Filter:** After the action method runs, the Result Filter checks if the response needs to be modified (e.g., adding custom headers, compressing large data).
+* **Exception Filter:** Finally, if any exceptions were thrown during the process (e.g., database errors), the Exception Filter catches them and sends a custom error message.
+
+
+#### **Differences Between Filters and Middleware in ASP.NET Core Web API**
+
+In ASP.NET Core Web API, both middleware and filters are used to handle HTTP requests, but they serve different roles within the request processing pipeline. Here’s a clearer explanation and comparison:
+
+##### **Middleware**
+
+Middleware is a global component that is executed early in the request pipeline. It works across all HTTP requests and responses, meaning it can modify or inspect requests or responses for any action or controller in the application. Middleware is responsible for handling concerns that apply globally to the entire application, such as routing, security, exception handling, or modifying the response (e.g., adding headers).
+
+**How It Works:** Middleware runs for every request coming into the system, and it is processed in the order in which it is registered. Each piece of middleware has access to the request, and it can either modify the request, pass it along the pipeline, or stop the request entirely (e.g., by returning a response early).
+
+**Example:** Imagine you are managing a website with multiple pages (actions). A middleware component could check every visitor (HTTP request) for certain rules (authentication, headers, etc.) before allowing them to view any page (controller action). This happens before they even reach the actual page content (action method). You need to create a middleware that checks if a user is logged in and authenticated before allowing access to any page in the web application.
+
+###### **When to Use:**
+
+Middleware is ideal for tasks that need to be applied globally across all routes in your application. Common use cases include:
+
+* Authentication and authorization
+* CORS (Cross-Origin Resource Sharing)
+* Logging requests
+* Exception handling
+* Modifying response headers (e.g., adding security headers)
 
 OnExecuted
 
