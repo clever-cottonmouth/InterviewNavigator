@@ -61,6 +61,14 @@ Components1. Unit of Work Interface: Defines methods like commit, rollback, and 
 
 ## Rate Limiting
 
+## API Gateway
+
+## Load Balancer
+
+## WebHook
+
+## Idempotent API
+
 # What are solid principles ?
 
 S- Single responsibility - Each class should have single job/responsibility.
@@ -82,3 +90,21 @@ Keeping the software design and implementation as simple as possible.
 This make software more understandable,maintainable and testable.
 
 ## Facade Design Pattern
+
+## SAGA Pattern
+
+## Cheorgphy
+
+## Orchestration
+
+## Strangler Pattern
+
+## CAP theorem
+
+## HLD and LLD
+
+## Distributed locking system
+
+## Zookeeper
+
+## Pub/Sub System
