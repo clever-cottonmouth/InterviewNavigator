@@ -132,6 +132,8 @@ The Strangler Pattern (or Strangler Fig Pattern) is a software engineering appro
 
 ## Distributed locking system
 
+## Apache Kafka
+
 ## Zookeeper
 
 ## Pub/Sub System
@@ -139,3 +141,11 @@ The Strangler Pattern (or Strangler Fig Pattern) is a software engineering appro
 ## CDN
 
 ## Event Sourcing
+
+## ElasticSearch
+
+## AutoScaling
+
+## WebSocket
+
+## Vertical Scaling and Horizontal Scaling
