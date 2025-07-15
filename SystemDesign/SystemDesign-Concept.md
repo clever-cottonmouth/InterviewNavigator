@@ -185,16 +185,16 @@ Horizontal Scaling (Scaling Out)* Definition: Increasing system capacity by addi
   * Potential for increased latency due to network communication between nodes.
   * Managing distributed systems can be challenging (e.g., ensuring data consistency, handling node failures).
 
-
-
-  When to Use* 
+  When to Use*
 
   Vertical Scaling: Best for applications with moderate growth, simpler architectures, or when quick scaling is needed without redesigning the system. Example: Legacy systems or small-scale databases.
 
   * Horizontal Scaling: Ideal for modern, cloud-native applications, high-traffic systems, or when fault tolerance and massive scalability are critical. Example: Web applications, microservices, or big data systems.
 
-  Real-World Context* 
+  Real-World Context*
 
   Vertical Scaling: Upgrading a single AWS EC2 instance from a t2.micro to a t2.large.
 
   Horizontal Scaling: Adding more nodes to a Kubernetes cluster or using a NoSQL database like MongoDB with sharding.
+
+## Blue Green Deployment

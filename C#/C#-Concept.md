@@ -1,3 +1,14 @@
+# CLI-Common Language Infrastructure
+
+cmd: developer command prompt->ildasm
+
+platform-neutral environment for executing applications written in multiple high-level programming languages
+
+c# code -> IL code -> Jit Compiler-> Hardware
+
+## CLR-Common Language Runtime
+
+
 # Value Type vs Reference Types
 
 System.value
@@ -121,7 +132,7 @@ namespace RefvsOutDemo
             Console.WriteLine($"Multiplication: {Multiplication}");
             Console.WriteLine($"Subtraction: {Subtraction}");
             Console.WriteLine($"Division: {Division}");
-          
+        
             Console.ReadKey();
         }
         //Declaring Method with out Parameters
