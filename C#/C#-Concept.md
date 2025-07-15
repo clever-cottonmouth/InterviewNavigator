@@ -8,6 +8,13 @@ c# code -> IL code -> Jit Compiler-> Hardware
 
 ## CLR-Common Language Runtime
 
+Runtime enginer to execute application
+
+## CLS-Common Language Specification
+
+## BCL- Base Class Library
+
+Console, String, StringBuilder, convert, Thread, Task
 
 # Value Type vs Reference Types
 
