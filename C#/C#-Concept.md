@@ -139,7 +139,7 @@ namespace RefvsOutDemo
             Console.WriteLine($"Multiplication: {Multiplication}");
             Console.WriteLine($"Subtraction: {Subtraction}");
             Console.WriteLine($"Division: {Division}");
-        
+      
             Console.ReadKey();
         }
         //Declaring Method with out Parameters
@@ -268,3 +268,31 @@ The foreach statement is used to iterate through the collection to get the infor
 If you are iterating through a collection of items, and do not care about the index values then foreach is more convenient, easier to write and safer: you can't get the number of items wrong.
 
 If you need to process every second item in a collection for example, or process them ion the reverse order, then a for loop is the only practical way.
+
+## DELEGATE
+
+What is Func Generic Delegate in C#?
+
+The Func Generic Delegate in C# is present in the System namespace. This delegate takes one or more input parameters and returns one out parameter. The last parameter is considered as the return value. The Func Generic Delegate in C# can take up to 16 input parameters of different or the same data types. It must have one return type. The return type is mandatory but the input parameter is not mandatory.
+
+Note: Whenever your delegate returns some value, whether by taking any input parameter or not, you need to use the Func Generic delegate in C#.
+
+##### What is Action Generic Delegate in C#?
+
+The Action Generic Delegate in C# is also present in the System namespace. It takes one or more input parameters and returns nothing. This delegate can take a maximum of 16 input parameters of the different or same data types.
+
+Note: Whenever your delegate does not return any value, whether by taking any input parameter or not, then you need to use the Action Generic delegate in C#.
+
+##### What is Predicate Generic Delegate in C#?
+
+The Predicate Generic Delegate in C# is also present in the System namespace. This delegate is used to verify certain criteria of the method and returns the output as Boolean, either True or False. It takes one input parameter and always returns a Boolean value which is mandatory. This delegate can take a maximum of 1 input parameter and always return the value of the Boolean type.
+
+Note: Whenever your delegate returns a Boolean value, by taking only one input parameter, then you need to use the Predicate Generic delegate in C#.
+
+Points to Remember while working with C# Generic Delegates:
+
+1. Func, Action, and Predicate are Generic Inbuilt delegates that are present in the System namespace which is introduced in C# 3.
+2. All these three delegates can be used with the method, [Anonymous Method](https://dotnettutorials.net/lesson/anonymous-method-c-sharp/), and [Lambda Expressions](https://dotnettutorials.net/lesson/lambda-expression-csharp/) in C#.
+3. The Func delegates can contain a maximum of 16 input parameters and must have one return type and that will be the last parameter in the parameter list.
+4. Action delegate can contain a maximum of 16 input parameters and does not have any return type.
+5. The Predicate delegate should satisfy some criteria of a method and must have only one input parameter. By default, it is having one output parameter of return type and we don’t have to pass the output parameter to the Predicate.
