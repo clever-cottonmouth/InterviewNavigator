@@ -192,7 +192,6 @@ END;
 
 # CURSOR
 
-A database cursor is an object that enables traversal over the rows of a result set. It allows you to process individual row returned by a query.
 
 ```sql
 DECLARE 
