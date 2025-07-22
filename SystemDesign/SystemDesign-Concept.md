@@ -142,6 +142,20 @@ An **API Gateway** is a server or service that acts as an intermediary between c
 
 ## WebHook
 
+A **webhook** is a mechanism that allows one application to send real-time data to another application when a specific event occurs, typically via an HTTP POST request. Often described as "user-defined HTTP callbacks," webhooks enable automated communication between systems without the need for constant polling. Here's a concise breakdown:**What Is a Webhook?* **A webhook is an event-driven integration where an application (the **sender**) pushes data to a predefined URL (the **receiver**) when a specific trigger or event happens.**
+
+* **The receiver is typically another application or service that processes the data for further action.**
+* **Webhooks are commonly used for real-time notifications, automation, and integrating disparate systems.**
+
+How Webhooks Work1. **Setup**: The receiving application provides a URL (the webhook endpoint) to the sending application, often during configuration (e.g., in a dashboard or API settings).
+
+1. **Event Trigger**: When a predefined event occurs in the sender (e.g., a new user signs up, a payment is made), it generates a payload (usually JSON or XML) containing event details.
+2. **HTTP Request**: The sender makes an HTTP POST request to the receiver’s webhook URL, sending the payload.
+3. **Processing**: The receiver processes the payload, performing actions like updating a database, sending notifications, or triggering workflows.
+
+* **Webhooks**: Focus on sending event-driven data to a specific URL, typically one-way communication.
+* **API Gateway**: Manages and routes API requests, handling authentication, rate limiting, and aggregation for multiple services. An API Gateway can expose webhook endpoints but serves broader purposes like load balancing and protocol translation.
+
 ## Idempotent API
 
 # What are solid principles ?
