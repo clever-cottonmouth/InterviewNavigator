@@ -1,4 +1,5 @@
 ## Reverse a linked list
+
 ```
 using System;
 
@@ -92,4 +93,82 @@ class Program
     }
 }
 
+```
+
+## 3sum
+
+```c#
+public class Solution {
+    public IList<IList<int>> ThreeSum(int[] nums) {
+        List<IList<int>> result = new List<IList<int>>();
+        if (nums == null || nums.Length < 3) return result;
+    
+        // Sort the array first
+        Array.Sort(nums);
+    
+        // Iterate through array, fixing first number
+        for (int i = 0; i < nums.Length - 2; i++) {
+            // Skip duplicates for first number
+            if (i > 0 && nums[i] == nums[i-1]) continue;
+        
+            // Use two pointers for remaining numbers
+            int left = i + 1;
+            int right = nums.Length - 1;
+        
+            while (left < right) { // Fixed: changed 'toggleright' to 'left < right'
+                int sum = nums[i] + nums[left] + nums[right];
+            
+                if (sum == 0) {
+                    // Found a valid triplet
+                    result.Add(new List<int> { nums[i], nums[left], nums[right] });
+                
+                    // Skip duplicates for left pointer
+                    while (left < right && nums[left] == nums[left + 1]) left++;
+                    // Skip duplicates for right pointer
+                    while (left < right && nums[right] == nums[right - 1]) right--;
+                
+                    left++;
+                    right--;
+                }
+                else if (sum < 0) {
+                    // Sum too small, increment left pointer
+                    left++;
+                }
+                else {
+                    // Sum too large, decrement right pointer
+                    right--;
+                }
+            }
+        }
+    
+        return result;
+    }
+}
+```
+
+## Valid Parenthesis
+
+```c#
+
+public class Solution {
+    public bool IsValid(string s) {
+     Stack<char> stack = new Stack<char>();
+    
+        foreach (char c in s) {
+            if (c == '(' || c == '{' || c == '[') {
+                stack.Push(c);
+            } else {
+                if (stack.Count == 0) return false;
+            
+                char top = stack.Pop();
+                if ((c == ')' && top != '(') || 
+                    (c == '}' && top != '{') || 
+                    (c == ']' && top != '[')) {
+                    return false;
+                }
+            }
+        }
+    
+        return stack.Count == 0;
+}}
 ```

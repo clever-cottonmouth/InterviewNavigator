@@ -139,7 +139,7 @@ namespace RefvsOutDemo
             Console.WriteLine($"Multiplication: {Multiplication}");
             Console.WriteLine($"Subtraction: {Subtraction}");
             Console.WriteLine($"Division: {Division}");
-      
+    
             Console.ReadKey();
         }
         //Declaring Method with out Parameters
@@ -296,3 +296,12 @@ Points to Remember while working with C# Generic Delegates:
 3. The Func delegates can contain a maximum of 16 input parameters and must have one return type and that will be the last parameter in the parameter list.
 4. Action delegate can contain a maximum of 16 input parameters and does not have any return type.
 5. The Predicate delegate should satisfy some criteria of a method and must have only one input parameter. By default, it is having one output parameter of return type and we don’t have to pass the output parameter to the Predicate.
+
+## Concurrency
+
+Concurrency means doing several things at the same time. For example, if we have to do a million tasks, then instead of doing them sequentially one by one, we can do them simultaneously, thus reducing the duration of the program execution.
+
+| ˛ | col2 | col3 |
+| -- | ---- | ---- |
+|    |      |      |
+|    |      |      |
