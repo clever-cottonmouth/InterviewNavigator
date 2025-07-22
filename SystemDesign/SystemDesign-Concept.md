@@ -144,6 +144,12 @@ A Content Delivery Network (CDN) is a geographically distributed network of serv
 
 ## Event Sourcing
 
+Event sourcing is a design pattern in software engineering where an application's state is derived by storing and replaying a sequence of events, rather than storing the current state directly. Each event represents a state change, capturing what happened, when, and why. These events are stored in an event log, which serves as the single source of truth.**Key Concepts:1. **Events as the Source of Truth**: Instead of updating a database with the current state (e.g., updating a user's balance in a table), you append immutable events (e.g., "UserDepositedMoney: $100") to an event store.
+
+1. **Rebuilding State**: The application's current state is computed by replaying all relevant events in order. For example, to determine a user's account balance, you sum all deposit and withdrawal events.
+2. **Immutability**: Events are never modified or deleted; they are appended to the log, ensuring a complete audit trail.
+3. **Event Store**: A specialized database or log that stores the sequence of events, optimized for appending and retrieving events.
+
 ## ElasticSearch
 
 ## AutoScaling
