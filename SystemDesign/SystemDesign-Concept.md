@@ -128,6 +128,16 @@ Disadvantages* **No Burst Support**: Unlike the token bucket, it doesn’t allow
 
 ## API Gateway
 
+An **API Gateway** is a server or service that acts as an intermediary between clients (e.g., web or mobile applications) and backend services (e.g., microservices, databases, or APIs). It serves as a single entry point for managing, routing, and processing API requests, simplifying communication in complex systems, especially in **microservices architectures**. Here's a concise explanation of its key aspects:**What Does an API Gateway Do?1. **Request Routing**: Receives client requests and directs them to the appropriate backend service based on the request's URL, headers, or other criteria.
+
+1. **Aggregation**: Combines data from multiple services into a single response to reduce client-server round trips, improving efficiency.
+2. **Security**: Enforces authentication (e.g., API keys, OAuth, JWT) and authorization to ensure only valid users access resources. It can also protect against threats like DDoS attacks.
+3. **Rate Limiting & Throttling**: Controls the number of requests a client can make to prevent overuse and ensure fair resource usage.
+4. **Protocol Translation**: Converts requests between different protocols (e.g., HTTP to gRPC) to enable communication between diverse systems.
+5. **Caching**: Stores frequently requested data to reduce latency and server load.
+6. **Monitoring & Analytics**: Logs requests, responses, and errors for performance tracking and debugging.
+7. **Load Balancing**: Distributes traffic across multiple service instances to ensure scalability and high availability.
+
 ## Load Balancer
 
 ## WebHook
