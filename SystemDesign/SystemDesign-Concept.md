@@ -75,6 +75,57 @@ Components1. Unit of Work Interface: Defines methods like commit, rollback, and 
 
 ## Rate Limiting
 
+Rate limiting restricts the number of requests a client can make to a server within a defined period (e.g., per second, minute, or hour). If the limit is exceeded, the server may reject additional requests, return an error (e.g., HTTP 429 Too Many Requests), or delay processing until the rate limit resets.
+
+### Token Bucket
+
+The **token bucket** algorithm is a widely used method for rate limiting, controlling the rate at which requests or actions are processed in a system. It’s simple, efficient, and allows for bursty traffic while enforcing an average rate limit over time. Below, I’ll explain the token bucket algorithm, how it works, its advantages, use cases, and a basic implementation example.**How the Token Bucket Algorithm Works***Concept**: Imagine a bucket that holds tokens, where each token represents permission to process a request (e.g., an API call, network packet, etc.).
+
+* **Key Parameters**:
+  * **Bucket Capacity**: The maximum number of tokens the bucket can hold, determining the maximum burst size.
+  * **Token Rate**: The rate at which tokens are added to the bucket (e.g., 10 tokens per second).
+  * **Request Cost**: Each request consumes a fixed number of tokens (usually 1).
+* **Process**:
+  1. **Tokens are added to the bucket at a constant rate (e.g., 10 tokens/second).**
+  2. **When a request arrives, it checks if there are enough tokens in the bucket.**
+     * **If sufficient tokens are available, the request consumes the required tokens and is processed.**
+     * **If not, the request is rejected (hard limit) or queued (soft limit).**
+  3. **If the bucket is full, additional tokens are discarded (no overflow).**
+* **Burst Handling**: The bucket allows bursts up to its capacity, enabling short-term high request rates as long as tokens are available, but enforces the average rate over time.
+
+### Leacky Bucket
+
+The **leaky bucket** algorithm is a rate-limiting technique used to control the rate at which requests, data packets, or events are processed in a system. It ensures a steady output rate, smoothing out bursts of traffic, and is commonly used in networking, task scheduling, and API management. Below, I’ll explain how it works, its mechanics, advantages, use cases, and how it differs from the token bucket algorithm, along with a simple implementation.**How the Leaky Bucket Algorithm Works***Concept**: Imagine a bucket with a hole at the bottom, leaking water (requests) at a constant rate. Incoming requests fill the bucket, but they are processed (leaked) at a fixed rate, regardless of how fast they arrive.
+
+* **Key Parameters**:
+  * **Bucket Capacity**: The maximum number of requests the bucket can hold.
+  * **Leak Rate**: The constant rate at which requests are processed (e.g., 10 requests per second).
+* **Process**:
+  1. **Incoming requests are added to the bucket if there’s space.**
+  2. **If the bucket is full, new requests are rejected (hard limit) or queued externally (soft limit).**
+  3. **Requests are processed (leaked) from the bucket at a constant rate, regardless of the arrival rate.**
+  4. **The bucket ensures a smooth, steady output, preventing bursts from overwhelming the system.**
+* **Key Feature**: Unlike the token bucket, which allows bursts up to a capacity, the leaky bucket enforces a constant output rate, making it ideal for systems requiring predictable throughput.
+
+Example* **Bucket capacity: 50 requests.**
+
+* **Leak rate: 10 requests/second.**
+* **If 100 requests arrive at once:**
+  * **The bucket accepts up to 50 requests; the remaining 50 are rejected or queued externally.**
+  * **The bucket processes 10 requests/second, regardless of the input burst.**
+  * **After 5 seconds, the bucket is empty, and new requests can be added.**
+
+Advantages* **Smooth Output**: Ensures a constant processing rate, preventing system overload from bursts.
+
+* **Predictability**: Ideal for systems requiring consistent throughput (e.g., network traffic shaping).
+* **Simplicity**: Easy to implement with a queue and a fixed-rate processor.
+* **Resource Protection**: Prevents downstream systems from being overwhelmed by sudden spikes.
+
+Disadvantages* **No Burst Support**: Unlike the token bucket, it doesn’t allow bursts, which may delay legitimate high-rate requests.
+
+* **Queue Management**: If the bucket fills frequently, rejected requests or external queuing can degrade user experience.
+* **Latency**: Requests may wait in the bucket, increasing latency for bursty traffic.
+
 ## API Gateway
 
 ## Load Balancer
