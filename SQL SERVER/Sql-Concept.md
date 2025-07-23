@@ -14,7 +14,6 @@ CREATE TABLE #TempTable (
     Age INT
 );
 
-
 ## **Cascading Referential Integrity Constraints**
 
 The Cascading Referential Integrity Constraints in SQL Server are the foreign key constraints that tell SQL Server to perform certain actions whenever a user attempts to delete or update a primary key to which an existing foreign keys point
@@ -40,3 +39,5 @@ This is the default action that SQL Server performs. This specifies that if an u
 A sequence is an object in SQL Server that is used to generate a number sequence. This can be useful when we need to create a unique number to act as a primary key.
 
 The Sequence Object is one of the new features introduced in SQL Server 2012. A sequence is a user-defined object and as its name suggests it generates a sequence of numeric values according to the properties with which it is created. It is similar to the Identity column, but there are many differences between them that we will discuss in our next article. But the most important point to keep in mind is that the Sequence Object in SQL Server is not limited to a column or table but is scoped to an entire database.
+
+## Delete And Truncate
