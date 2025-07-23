@@ -139,7 +139,7 @@ namespace RefvsOutDemo
             Console.WriteLine($"Multiplication: {Multiplication}");
             Console.WriteLine($"Subtraction: {Subtraction}");
             Console.WriteLine($"Division: {Division}");
-    
+  
             Console.ReadKey();
         }
         //Declaring Method with out Parameters
@@ -301,7 +301,32 @@ Points to Remember while working with C# Generic Delegates:
 
 Concurrency means doing several things at the same time. For example, if we have to do a million tasks, then instead of doing them sequentially one by one, we can do them simultaneously, thus reducing the duration of the program execution.
 
-| ˛ | col2 | col3 |
-| -- | ---- | ---- |
-|    |      |      |
-|    |      |      |
+| ˛ |  |  |
+| -- | - | - |
+
+
+
+## **What are Accessors in C#?**
+
+The Assessors are nothing but special methods which are used to set and get the values from the underlying data member (i.e. variable) of a class. Assessors are of two types. They are as follows:
+
+1. **Set Accessor**
+2. **Get Accessor**
+
+##### **What is a Set Accessor?**
+
+The set accessor is used to set the data (i.e. value) into a data field i.e. a variable of a class. This set accessor contains a fixed variable named  value . Whenever we call the property to set the data, whatever data (value) we are supplying will come and store inside the variable called value by default. Using a set accessor, we cannot get the data.
+
+**Syntax: **set { Data_Field_Name = value; }
+
+##### What is Get Accessor?
+
+The get accessor is used to get the data from the data field i.e. variable of a class. Using the get accessor, we can only get the data, we cannot set the data.
+
+Syntax: get {return Data_Field_Name;}
+
+##### What are Auto-Implemented Properties in C#?
+
+If you do not have any additional logic while setting and getting the data from a data field i.e. from a variable of a class, then you can make use of the auto-implemented properties which was introduced as part of C# 3.0. The Auto-Implemented Property in C# reduces the amount of code that we have to write. When we use auto-implemented properties, then the C# compiler implicitly creates a private, anonymous field or variable for that property behind the scene which is going to hold the data.
+Syntax: Access_specifier Datatype Property_Name { get; set; }
+Example: public int A { get; set; }
