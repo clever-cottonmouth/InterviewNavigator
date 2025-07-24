@@ -219,6 +219,37 @@ Types of Saga Patterns
 
 ### Database per service pattern
 
+## Aggregator Pattern
+
+The **Aggregator Pattern** is a design pattern used in software engineering, particularly in distributed systems, microservices, or event-driven architectures, to collect and combine data from multiple sources into a single, cohesive response. It’s commonly used to simplify complex interactions between a client and multiple services by providing a unified interface.**Key Concepts***Purpose**: Aggregates data from various services or components to present a consolidated result to the client.
+
+* **Use Case**: When a client needs data that spans multiple services (e.g., in microservices, where each service owns a specific domain).
+* **Components**:
+  * **Aggregator**: A service or component that orchestrates calls to multiple downstream services, collects their responses, and combines them.
+  * **Downstream Services**: Independent services or APIs that provide specific pieces of data.
+  * **Client**: The entity requesting the aggregated data (e.g., a UI or another service).
+* **Process**:
+  1. **The client sends a request to the aggregator.**
+  2. **The aggregator makes parallel or sequential calls to the required services.**
+  3. **The aggregator collects, transforms, and combines the responses.**
+  4. **The aggregated result is returned to the client.**
+
+Types of Aggregator Patterns1. **API Gateway as Aggregator**:
+
+* **An API Gateway acts as the aggregator, routing requests to multiple microservices and combining their responses.**
+* **Example: A product page in an e-commerce app fetching data from inventory, pricing, and reviews services.**
+
+1. **Composite Service**:
+   * **A dedicated service is created to aggregate data from other services.**
+   * **Example: A "Order Summary" service that pulls data from "User," "Order," and "Payment" services.**
+2. **Event-Driven Aggregator**:
+   * **Uses events to collect data asynchronously, often with a message broker (e.g., Kafka, RabbitMQ).**
+   * **Example: Aggregating user activity logs from multiple services via event streams.**
+
+## Sidecar Pattern
+
+## Adaptor Pattern
+
 ## Strangler Pattern
 
 The Strangler Pattern (or Strangler Fig Pattern) is a software engineering approach used to incrementally replace an existing system (often a legacy system) with a new one. Instead of a complete, high-risk rewrite, the pattern involves gradually building new functionality around the edges of the old system, slowly "strangling" it until the legacy system is fully replaced or significantly reduced.
