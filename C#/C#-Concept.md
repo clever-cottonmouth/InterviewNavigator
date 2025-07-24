@@ -304,8 +304,6 @@ Concurrency means doing several things at the same time. For example, if we have
 | ˛ |  |  |
 | -- | - | - |
 
-
-
 ## **What are Accessors in C#?**
 
 The Assessors are nothing but special methods which are used to set and get the values from the underlying data member (i.e. variable) of a class. Assessors are of two types. They are as follows:
@@ -330,3 +328,30 @@ Syntax: get {return Data_Field_Name;}
 If you do not have any additional logic while setting and getting the data from a data field i.e. from a variable of a class, then you can make use of the auto-implemented properties which was introduced as part of C# 3.0. The Auto-Implemented Property in C# reduces the amount of code that we have to write. When we use auto-implemented properties, then the C# compiler implicitly creates a private, anonymous field or variable for that property behind the scene which is going to hold the data.
 Syntax: Access_specifier Datatype Property_Name { get; set; }
 Example: public int A { get; set; }
+
+
+## **IEnumerable and IQueryable**
+
+IEnumerable in C# is an interface that defines one method, GetEnumerator, which returns an IEnumerator object. This interface is found in the **System.Collections** namespace. It is a key part of the .NET Framework and is used to iterate over a collection of objects.
+
+###### **GetEnumerator Method:**
+
+This is the only method defined in the IEnumerable interface. It returns an IEnumerator object, which provides the ability to iterate through the collection by exposing a Current property and MoveNext() and Reset() methods.
+
+* **Current** : A property that gets the current element in the collection.
+* **MoveNext()** : This advances the enumerator to the next element of the collection.
+* **Reset():** Sets the enumerator to its initial position, which is before the first element in the collection.
+
+
+IQueryable in C# is an interface that is used to query data from a data source. It is part of the System.Linq namespace and is a key component in LINQ (Language Integrated Query). Unlike IEnumerable, which is used for iterating over in-memory collections, IQueryable is designed for querying data sources where the query is not executed until the object is enumerated. This is particularly useful for remote data sources, like databases, enabling efficient querying by allowing the query to be executed on the server side.
+
+##### **Key Differences Between IEnumerable and IQueryable in C#**
+
+* **Execution Context:** IEnumerable executes in the client memory, whereas IQueryable executes on the data source.
+* **Suitability:** IEnumerable is suitable for LINQ to Objects and working with in-memory data. IQueryable is suitable for LINQ to SQL or Entity Framework to interact with databases.
+* **Performance:** IQueryable can perform better for large data sets as it allows the database to optimize and filter data.
+
+##### **Choosing Between IEnumerable and IQueryable in C#:**
+
+* Use IEnumerable when working with in-memory data collections where the data set is not excessively large.
+* Use IQueryable when querying data from out-of-memory sources like databases, especially when dealing with large data sets, to take advantage of server-side processing and optimizations.
