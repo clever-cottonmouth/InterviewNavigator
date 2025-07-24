@@ -258,6 +258,14 @@ The Strangler Pattern (or Strangler Fig Pattern) is a software engineering appro
 
 ## HLD and LLD
 
+* **HLD sets the foundation by defining the system's structure and major components.**
+* **LLD builds on HLD, breaking down each component into actionable implementation details.**
+* **HLD ensures the system aligns with business goals; LLD ensures the system can be coded efficiently.**
+
+Example in Context**For a ride-sharing app:*** **HLD**: Outlines components like user app, driver app, backend services (matching, routing), and database. It describes how the app communicates with the backend via APIs and uses a geolocation service.
+
+* **LLD**: Details the matching algorithm (e.g., logic to pair riders with drivers), database schema for user data, and specific API endpoints like **/requestRide** with request/response formats.
+
 ## Distributed locking system
 
 ## Apache Kafka
