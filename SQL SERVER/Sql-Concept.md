@@ -69,3 +69,9 @@ Sometimes, you need to write a complex formula or logic in every query.
 To make it consistent, you can hide the complex queries logic and calculations in views.
 
 Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.
+
+## Check And Default
+
+**Check**: A constraint that enforces a condition on the values in a column. It ensures data meets specific criteria. Example: **CHECK (Age >= 18)** in a **Users** table to restrict ages to 18 or older.
+
+**Default**: Specifies a default value for a column if no value is provided during insertion. Example: **DEFAULT 'Active'** for a **Status** column in a **Users** table.
