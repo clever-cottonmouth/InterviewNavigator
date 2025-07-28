@@ -41,3 +41,31 @@ A sequence is an object in SQL Server that is used to generate a number sequence
 The Sequence Object is one of the new features introduced in SQL Server 2012. A sequence is a user-defined object and as its name suggests it generates a sequence of numeric values according to the properties with which it is created. It is similar to the Identity column, but there are many differences between them that we will discuss in our next article. But the most important point to keep in mind is that the Sequence Object in SQL Server is not limited to a column or table but is scoped to an entire database.
 
 ## Delete And Truncate
+
+## VIEWS
+
+A view is a named query stored in the database catalog that allows you to refer to it later.
+
+Advantages of views
+
+Generally speaking, views provide the following advantages:
+
+**Security**
+
+You can restrict users to access directly to a table and allow them to access a subset of data via views.
+
+For example, you can allow users to access customer name, phone, email via a view but restrict them to access the bank account and other sensitive information.
+
+**Simplicity**
+
+A relational database may have many tables with complex relationships e.g., one-to-one and one-to-many that make it difficult to navigate.
+
+However, you can simplify the complex queries with joins and conditions using a set of views.
+
+**Consistency**
+
+Sometimes, you need to write a complex formula or logic in every query.
+
+To make it consistent, you can hide the complex queries logic and calculations in views.
+
+Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.
