@@ -208,14 +208,12 @@ Types of Saga Patterns
 * **Cons: Harder to track the flow, debugging can be complex.**
 * **Example: An e-commerce order process where the Order Service creates an order, emits an "OrderCreated" event, the Payment Service processes payment, emits a "PaymentProcessed" event, and so on.**
 
-
 1. **Orchestration**:
 
 * **A central orchestrator (a dedicated service or component) coordinates the saga by explicitly instructing each microservice to perform its local transaction.**
 * **Pros: Easier to understand, monitor, and debug; clearer control flow.**
 * **Cons: Introduces a single point of coordination, which can become a bottleneck.**
 * **Example: A saga orchestrator directing the Order Service to create an order, then the Payment Service to process payment, and finally the Inventory Service to reserve items.**
-
 
 ### Database per service pattern
 
@@ -342,3 +340,17 @@ Horizontal Scaling (Scaling Out)* Definition: Increasing system capacity by addi
   Horizontal Scaling: Adding more nodes to a Kubernetes cluster or using a NoSQL database like MongoDB with sharding.
 
 ## Blue Green Deployment
+
+## Database Sharding
+
+Sharding is typically used to address challenges in large-scale systems, such as:
+
+1. **Scalability**: As data grows, a single database server may struggle to handle increased traffic or storage. Sharding allows you to scale horizontally by adding more servers.
+
+1. **Performance**: Queries run faster on smaller datasets, as each shard processes only a subset of the data.
+2. **Availability**: Distributing data across multiple servers reduces the risk of a single point of failure.
+3. **Geographic Distribution**: Shards can be placed closer to users in different regions, reducing latency (e.g., one shard in the US, another in Europe).
+
+How Sharding Works1. **Sharding Key**: A specific attribute (e.g., user ID, location, or timestamp) is chosen to determine how data is distributed across shards. This is also called the **partition key**.
+
+* **Example: For a social media app, you might shard by **user_id**, so all data for a specific user resides in one shard.**
