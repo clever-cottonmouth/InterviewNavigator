@@ -192,7 +192,6 @@ END;
 
 # CURSOR
 
-
 ```sql
 DECLARE 
     @product_name VARCHAR(MAX), 
@@ -288,7 +287,7 @@ Most asked SQL Interview Questions
 56. What are different types of constraints?
 57. Difference between char and Varchar?
 58. What is an index? Explain its different types.
-59. Differentiate between UNION and UNION ALL.
+59. 
 60. How many types of clauses in SQL?
 61. Difference between UNION and UNION ALL in SQL?
 62. What are the various types of relationships in SQL?
@@ -301,7 +300,7 @@ Most asked SQL Interview Questions
 69. 
 70. Write a SQL query to find the employees who have the same name and work in the same department.
 71. Write a SQL query to find the departments with no employees.
-72. How do you use indexing to improve SQL query performance?
+72. 
 73. 
 74. What is the difference between SUBQUERY and JOIN?
 75. Write a SQL query to find the top 2 products with the highest sales.

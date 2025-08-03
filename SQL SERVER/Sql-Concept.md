@@ -68,10 +68,28 @@ Sometimes, you need to write a complex formula or logic in every query.
 
 To make it consistent, you can hide the complex queries logic and calculations in views.
 
-Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.
+Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.	
 
 ## Check And Default
 
 **Check**: A constraint that enforces a condition on the values in a column. It ensures data meets specific criteria. Example: **CHECK (Age >= 18)** in a **Users** table to restrict ages to 18 or older.
 
 **Default**: Specifies a default value for a column if no value is provided during insertion. Example: **DEFAULT 'Active'** for a **Status** column in a **Users** table.
+
+## How do you use indexing to improve SQL query performance?
+
+An index is a data structure (typically a B-tree or hash) that stores a subset of a table’s columns, enabling faster lookups, joins, and filtering. It’s like a book’s index, pointing to data locations without scanning the entire table.
+
+## Differentiate between UNION and UNION ALL.
+
+Union
+
+* **Purpose**: Combines the result sets of multiple **SELECT** queries and **removes duplicate rows** from the final result.
+* **Behavior**: Performs a distinct operation, sorting and eliminating duplicate rows across the entire result set.
+* **Performance**: Slower than **UNION ALL** because it requires additional processing to identify and remove duplicates.
+
+UnionAll
+
+* **Purpose**: Combines the result sets of multiple **SELECT** queries and **includes all rows**, including duplicates.
+* **Behavior**: Does not perform duplicate removal or sorting, simply concatenates the results.
+* **Performance**: Faster than **UNION** because it skips the duplicate removal step, making it more efficient for large datasets.
