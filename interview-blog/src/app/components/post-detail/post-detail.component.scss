@@ -1,0 +1,286 @@
+.post-detail-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+// Post Header
+.post-header {
+  margin-bottom: 32px;
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 16px;
+
+    .category-badge {
+      color: white;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-weight: 500;
+    }
+
+    .post-date {
+      color: #666;
+      font-size: 0.9rem;
+    }
+  }
+
+  .post-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.2;
+    margin-bottom: 20px;
+  }
+
+  .post-info {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 0.9rem;
+
+    .author-info,
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+
+      mat-icon {
+        font-size: 18px;
+      }
+    }
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    .tag-chip {
+      font-size: 0.8rem;
+      background: #f0f0f0;
+      color: #666;
+    }
+  }
+}
+
+// Post Content
+.post-content {
+  margin-bottom: 48px;
+
+  .content-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+
+    mat-card-content {
+      padding: 32px;
+
+      .content-text {
+        line-height: 1.8;
+        color: #333;
+
+        h2 {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #333;
+          margin: 32px 0 16px 0;
+          padding-top: 16px;
+          border-top: 1px solid #e0e0e0;
+        }
+
+        h3 {
+          font-size: 1.4rem;
+          font-weight: 600;
+          color: #333;
+          margin: 24px 0 12px 0;
+        }
+
+        p {
+          margin-bottom: 16px;
+          font-size: 1.1rem;
+        }
+
+        ul, ol {
+          margin: 16px 0;
+          padding-left: 24px;
+
+          li {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+          }
+        }
+
+        .code-block {
+          background: #f8f9fa;
+          border: 1px solid #e9ecef;
+          border-radius: 8px;
+          padding: 16px;
+          margin: 20px 0;
+          overflow-x: auto;
+
+          pre {
+            margin: 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: #333;
+
+            code {
+              background: none;
+              padding: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Related Posts
+.related-posts {
+  margin-top: 48px;
+
+  .section-header {
+    text-align: center;
+    margin: 32px 0;
+
+    h2 {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #333;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+    }
+  }
+
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+
+    .related-card {
+      cursor: pointer;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: none;
+      border-radius: 12px;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      }
+
+      mat-card-content {
+        padding: 20px;
+
+        h3 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: #333;
+          margin-bottom: 12px;
+          line-height: 1.3;
+        }
+
+        p {
+          color: #666;
+          line-height: 1.5;
+          margin-bottom: 12px;
+          font-size: 0.9rem;
+        }
+
+        .related-post-meta {
+          display: flex;
+          justify-content: space-between;
+          color: #999;
+          font-size: 0.8rem;
+        }
+      }
+    }
+  }
+}
+
+// Loading State
+.loading-container {
+  text-align: center;
+  padding: 80px 24px;
+  color: #666;
+
+  .loading-icon {
+    font-size: 48px;
+    color: #ccc;
+    margin-bottom: 16px;
+    animation: spin 2s linear infinite;
+  }
+
+  p {
+    font-size: 1.1rem;
+  }
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .post-header {
+    .post-title {
+      font-size: 2rem;
+    }
+
+    .post-info {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+    }
+  }
+
+  .post-content {
+    .content-card {
+      mat-card-content {
+        padding: 24px;
+
+        .content-text {
+          h2 {
+            font-size: 1.6rem;
+          }
+
+          h3 {
+            font-size: 1.3rem;
+          }
+        }
+      }
+    }
+  }
+
+  .related-posts {
+    .related-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .post-header {
+    .post-title {
+      font-size: 1.8rem;
+    }
+  }
+
+  .post-content {
+    .content-card {
+      mat-card-content {
+        padding: 20px;
+      }
+    }
+  }
+}

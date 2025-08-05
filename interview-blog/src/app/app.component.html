@@ -1,0 +1,96 @@
+<mat-toolbar color="primary" class="toolbar">
+  <button mat-icon-button (click)="sidenav.toggle()" class="menu-button">
+    <mat-icon>menu</mat-icon>
+  </button>
+
+  <a class="toolbar-title" routerLink="/" style="cursor: pointer; text-decoration: none; color: inherit;">{{ title }}</a>
+
+  <div class="search-container">
+    <mat-form-field appearance="outline" class="search-field">
+      <mat-label>Search posts...</mat-label>
+      <input matInput [(ngModel)]="searchQuery" (keyup.enter)="onSearch()" placeholder="Search interview questions...">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
+</mat-toolbar>
+
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #sidenav mode="side" opened class="sidenav">
+    <mat-nav-list>
+      <div class="sidenav-header">
+        <h3>Categories</h3>
+      </div>
+
+      <a mat-list-item routerLink="/" routerLinkActive="active">
+        <mat-icon>home</mat-icon>
+        <span>Home</span>
+      </a>
+
+      <a mat-list-item routerLink="/angular" routerLinkActive="active">
+        <mat-icon>code</mat-icon>
+        <span>Angular</span>
+      </a>
+
+      <a mat-list-item routerLink="/react" routerLinkActive="active">
+        <mat-icon>react</mat-icon>
+        <span>React</span>
+      </a>
+
+      <a mat-list-item routerLink="/csharp" routerLinkActive="active">
+        <mat-icon>csharp</mat-icon>
+        <span>C#</span>
+      </a>
+
+      <a mat-list-item routerLink="/javascript" routerLinkActive="active">
+        <mat-icon>javascript</mat-icon>
+        <span>JavaScript</span>
+      </a>
+
+      <a mat-list-item routerLink="/sql" routerLinkActive="active">
+        <mat-icon>storage</mat-icon>
+        <span>SQL Server</span>
+      </a>
+
+      <a mat-list-item routerLink="/css" routerLinkActive="active">
+        <mat-icon>palette</mat-icon>
+        <span>CSS</span>
+      </a>
+
+      <a mat-list-item routerLink="/html" routerLinkActive="active">
+        <mat-icon>html</mat-icon>
+        <span>HTML</span>
+      </a>
+
+      <a mat-list-item routerLink="/dotnet" routerLinkActive="active">
+        <mat-icon>dotnet</mat-icon>
+        <span>.NET</span>
+      </a>
+
+      <a mat-list-item routerLink="/git" routerLinkActive="active">
+        <mat-icon>git</mat-icon>
+        <span>Git</span>
+      </a>
+
+      <a mat-list-item routerLink="/linq" routerLinkActive="active">
+        <mat-icon>data_array</mat-icon>
+        <span>LINQ</span>
+      </a>
+
+      <a mat-list-item routerLink="/data-structures" routerLinkActive="active">
+        <mat-icon>data_array</mat-icon>
+        <span>Data Structures</span>
+      </a>
+
+      <a mat-list-item routerLink="/system-design" routerLinkActive="active">
+        <mat-icon>architecture</mat-icon>
+        <span>System Design</span>
+      </a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content class="sidenav-content">
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

@@ -1,0 +1,130 @@
+<div class="home-container">
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-content">
+      <h1 class="hero-title">Interview Navigator</h1>
+      <p class="hero-subtitle">Your comprehensive guide to technical interview preparation</p>
+      <p class="hero-description">
+        Master the most common interview questions across Angular, React, C#, JavaScript, SQL Server, and more.
+        Get ready for your next technical interview with our curated collection of concepts, code examples, and best practices.
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">12+</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">50+</span>
+          <span class="stat-label">Topics</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">100+</span>
+          <span class="stat-label">Questions</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories-section">
+    <div class="section-header">
+      <h2>Explore Categories</h2>
+      <p>Browse through different technology categories and find relevant interview questions</p>
+    </div>
+
+    <div class="categories-grid">
+      <mat-card
+        *ngFor="let category of categories"
+        class="category-card"
+        [routerLink]="['/', category.id]"
+        routerLinkActive="active">
+        <mat-card-content>
+          <div class="category-icon" [style.background-color]="category.color">
+            <mat-icon>{{ category.icon }}</mat-icon>
+          </div>
+          <h3>{{ category.name }}</h3>
+          <p>{{ category.description }}</p>
+          <div class="category-meta">
+            <span class="post-count">{{ category.postCount }} posts</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Featured Posts Section -->
+  <section class="featured-section">
+    <div class="section-header">
+      <h2>Featured Posts</h2>
+      <p>Latest and most popular interview preparation content</p>
+    </div>
+
+    <div class="featured-grid">
+      <mat-card
+        *ngFor="let post of featuredPosts"
+        class="featured-card"
+        [routerLink]="['/post', post.id]">
+        <mat-card-header>
+          <mat-card-title>{{ post.title }}</mat-card-title>
+          <mat-card-subtitle>
+            <span class="category-badge" [style.background-color]="getCategoryColor(post.category)">
+              {{ getCategoryName(post.category) }}
+            </span>
+            <span class="post-date">{{ formatDate(post.date) }}</span>
+          </mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+          <p>{{ post.excerpt }}</p>
+          <div class="post-tags">
+            <mat-chip *ngFor="let tag of post.tags" class="tag-chip">
+              {{ tag }}
+            </mat-chip>
+          </div>
+        </mat-card-content>
+
+        <mat-card-actions>
+          <div class="post-meta">
+            <span class="read-time">
+              <mat-icon>schedule</mat-icon>
+              {{ post.readTime }} min read
+            </span>
+            <span class="author">
+              <mat-icon>person</mat-icon>
+              {{ post.author }}
+            </span>
+          </div>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </section>
+
+  <!-- Recent Posts Section -->
+  <section class="recent-section">
+    <div class="section-header">
+      <h2>Recent Posts</h2>
+      <p>Stay updated with the latest interview questions and concepts</p>
+    </div>
+
+    <div class="recent-grid">
+      <mat-card
+        *ngFor="let post of recentPosts"
+        class="recent-card"
+        [routerLink]="['/post', post.id]">
+        <mat-card-content>
+          <div class="recent-post-header">
+            <h3>{{ post.title }}</h3>
+            <span class="category-badge" [style.background-color]="getCategoryColor(post.category)">
+              {{ getCategoryName(post.category) }}
+            </span>
+          </div>
+          <p>{{ post.excerpt }}</p>
+          <div class="recent-post-meta">
+            <span class="post-date">{{ formatDate(post.date) }}</span>
+            <span class="read-time">{{ post.readTime }} min read</span>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+  </section>
+</div>
