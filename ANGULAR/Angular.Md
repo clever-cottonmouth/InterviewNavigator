@@ -76,8 +76,6 @@ BehaviourSubject stores the current value which is lastly broadcast to the obser
 
 child to grandChild
 
-# BehaviourSubject
-
 # ElementRef
 
 Represent plain html tags of the template

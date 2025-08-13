@@ -1,10 +1,127 @@
-observable
 
-subject
+## How DI works?
 
-pipe
+STEP 1:
 
-of
+```typescript
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root' // Registers the service as a singleton at the root level
+})
+export class MyService {
+  getData(): string {
+    return 'Hello from MyService!';
+  }
+}
+```
+
+
+* **The **@Injectable** decorator marks the class as injectable.**
+* **providedIn: 'root'** ensures the service is available application-wide as a singleton.
+
+
+**Angular’s DI system needs to know how to provide the service. The **providedIn: 'root'** metadata in the service handles this automatically. However, you can also register providers manually in a module or component.**1. 
+
+**Using **providedIn: 'root'** (Recommended)**:
+
+* **As shown above, this is the modern way to register services, introduced in Angular 6+.**
+* **It ensures a single instance of the service is created and tree-shaking optimizes unused services.**
+
+1. **Alternative: Register in NgModule**:
+   If you need to scope the service to a specific module, add it to the **providers** array in **app.module.ts**:
+
+```typescript
+import { NgModule } from '@angular/core';
+import { BrowserModule } from '@angular/platform-browser';
+import { AppComponent } from './app.component';
+import { MyService } from './services/my.service';
+
+@NgModule({
+  declarations: [AppComponent],
+  imports: [BrowserModule],
+  providers: [MyService], // Register the service here
+  bootstrap: [AppComponent]
+})
+export class AppModule {}
+```
+
+**Component-Level Provider (Optional)**:
+If you want a new instance of the service for a specific component and its children, register it in the component’s metadata:
+
+
+```typescript
+@Component({
+  selector: 'app-my-component',
+  template: '...',
+  providers: [MyService] // New instance for this component
+})
+export class MyComponent {}
+```
+
+Inject the service into the component:
+Open src/app/my-component/my-component.component.ts and inject MyService via the constructor:
+
+
+```typescript
+import { Component, OnInit } from '@angular/core';
+import { MyService } from '../services/my.service';
+
+@Component({
+  selector: 'app-my-component',
+  template: `<p>{{ data }}</p>`
+})
+export class MyComponent implements OnInit {
+  data: string;
+
+  constructor(private myService: MyService) {} // Inject the service
+
+  ngOnInit(): void {
+    this.data = this.myService.getData(); // Use the service
+  }
+}
+```
+
+The private myService: MyService syntax tells Angular to inject an instance of MyService.
+
+
+**Explore Advanced DI (Optional)**1. Using InjectionToken for Non-Class Dependencies:
+   If you need to inject a configuration value (e.g., API URL), create an InjectionToken:
+
+
+```typescript
+import { InjectionToken } from '@angular/core';
+
+export const API_URL = new InjectionToken<string>('API_URL');
+
+// In app.module.ts
+@NgModule({
+  providers: [{ provide: API_URL, useValue: 'https://api.example.com' }]
+})
+export class AppModule {}
+```
+
+
+Types of Providers
+
+Angular supports various provider types for flexibility:* 
+
+Class Provider: provide: MyService, useClass: MyService
+
+* Value Provider: provide: 'API_URL', useValue: 'https://api.example.com'
+* Factory Provider: provide: MyService, useFactory: () => new MyService(config)
+* Alias Provider: provide: MyService, useExisting: OtherService
+* Injection Tokens: Used for non-class dependencies (e.g., configuration objects)
+
+Summary of Steps1. Create a service with @Injectable and define its logic.
+
+1. Register the service (via providedIn: 'root' or in a module/component).
+2. Create a component and inject the service via its constructor.
+3. Use the service in the component to fetch or manipulate data.
+4. Add the component to the app’s template.
+5. Run and test the app.
+6. (Optional) Explore advanced DI features like InjectionToken or factory providers.
+7. Test the DI setup using Angular’s testing utilities.
 
 ## Differences between mergeMap, concatMap, and switchMap.
 
@@ -249,17 +366,10 @@ Two-Way Binding: Requires FormsModule for ngModel and is useful for form inputs.
 Performance: Angular’s change detection automatically updates the UI when bound data changes, but overuse of two-way binding can impact performance in large applications.
 Directives: Structural directives like *ngIf and *ngFor often work with data binding to conditionally render or iterate over elements.
 
-
 ## Angular Directives
-Angular directives are special markers (attributes or elements) in the DOM that extend HTML functionality or manipulate the DOM in Angular applications. They allow you to attach behavior to elements, modify their structure, or create reusable components. Angular has three main types of directives: Component Directives, Structural Directives, and Attribute Directives. 
+
+Angular directives are special markers (attributes or elements) in the DOM that extend HTML functionality or manipulate the DOM in Angular applications. They allow you to attach behavior to elements, modify their structure, or create reusable components. Angular has three main types of directives: Component Directives, Structural Directives, and Attribute Directives.
 
 Defined using the @Component decorator, they encapsulate HTML, CSS, and TypeScript logic.
 Identified by a leading asterisk (*) in templates. *ngif
 Modify the behavior or appearance of an element without altering the DOM structure. ngClass
-
-
-
-
-
-
-
