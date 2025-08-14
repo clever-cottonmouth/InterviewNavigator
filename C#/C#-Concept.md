@@ -6,6 +6,20 @@ platform-neutral environment for executing applications written in multiple high
 
 c# code -> IL code -> Jit Compiler-> Hardware
 
+
+## CLASS IN C#
+
+**Partial Class and Partial Methods in C#**
+
+partial classes allow you to split the definition of a single class across multiple files. If two partial class definitions in separate files have the same name, they must meet specific requirements to work correctly:**1. **Same Namespace**: Both partial class definitions must be in the same namespace (or have no namespace if they are in the global namespace).
+
+1. **Same Class Name**: The class names must match exactly, including case sensitivity.
+2. **Partial Keyword**: Both class definitions must use the **partial** keyword.
+3. **Same Access Modifier**: Both parts of the partial class must have the same access modifier (e.g., **public**, **private**, etc.).
+4. **Same Assembly**: Partial classes must be defined within the same assembly (project).
+
+**Sealed Class and Sealed Methods in C#**
+
 ## CLR-Common Language Runtime
 
 Runtime enginer to execute application
@@ -355,3 +369,7 @@ IQueryable in C# is an interface that is used to query data from a data source. 
 * Use IQueryable when querying data from out-of-memory sources like databases, especially when dealing with large data sets, to take advantage of server-side processing and optimizations.
 
 ## **Types of Dependency Injection Design Pattern in C#.**
+
+Constructor Injection
+Property Injection
+Method Injection
