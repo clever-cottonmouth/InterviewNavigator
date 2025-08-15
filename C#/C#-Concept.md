@@ -7,6 +7,51 @@ platform-neutral environment for executing applications written in multiple high
 c# code -> IL code -> Jit Compiler-> Hardware
 
 
+
+## **Difference between Class and Objects in C#**
+
+a Class is a template or blueprint for creating Objects, and every Object in C# must belong to a Class
+
+
+# Constructor
+
+It is a special method present inside a class responsible for initializing the variables of that class. 
+
+The constructor method does not return any value.
+
+The Constructors are responsible for two things. One is the object initialization and the other one is memory allocation. The role of the new keyword is to create the object and the role of the constructor is to initialize the variables.
+
+The compiler defined this constructor for us. And we call this an Implicit Constructor. And if we defined the same thing, then it is called an explicit constructor.
+
+If we don’t have a constructor, then we cannot create an instance of the class.
+
+
+Every variable we declared inside a class and every field we declared inside a class has a default value. All numeric types are initialized with 0, Boolean types initialized with false, and string and object types initialized with null. For a better understanding, please have a look at the below image.
+
+the initialization is performed for each and all variables present in the class and this is the responsibility of the constructor. That is why a constructor is very important for us inside a class.
+
+**Static Constructor**
+
+In a static constructor, you cannot use any access specifiers like public, private, and protected.
+
+Static Constructors are responsible for initializing static variables and these constructors are never called explicitly. They are called Implicitly and moreover, these constructors are the first to execute in any class
+
+Static Constructors cannot be parameterized, so overloading of the static constructors is not possible in C#.
+
+**private constructor**
+
+When a class contains a private constructor then we cannot create an object for the class outside of the class. So, private constructors are used to create an object for the class within the same class. Generally, private constructors are used in the Remoting concept.
+
+We need to use the private constructor in C# when the class contains only static members.
+
+## **Generalization and Specialization**
+
+In specialization, the parent was existing and the child was defined later. In generalization, the child class was existing then we define the base class. So, specialization is a top-down approach and generalization is a bottom-up approach.
+
+In specialization, the base class has something to give to the child class whereas, in generalization, the base class doesn’t have anything to give to their child classes. Just their purpose is to group them together so that we can easily manage all those things.
+
+The purpose of generalization is to achieve polymorphism and the purpose of specialization is to share its features with its child classes.
+
 ## CLASS IN C#
 
 **Partial Class and Partial Methods in C#**
@@ -19,6 +64,7 @@ partial classes allow you to split the definition of a single class across multi
 4. **Same Assembly**: Partial classes must be defined within the same assembly (project).
 
 **Sealed Class and Sealed Methods in C#**
+
 
 ## CLR-Common Language Runtime
 
@@ -315,8 +361,7 @@ Points to Remember while working with C# Generic Delegates:
 
 Concurrency means doing several things at the same time. For example, if we have to do a million tasks, then instead of doing them sequentially one by one, we can do them simultaneously, thus reducing the duration of the program execution.
 
-| ˛ |  |  |
-| -- | - | - |
+
 
 ## **What are Accessors in C#?**
 
