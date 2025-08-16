@@ -1,3 +1,21 @@
+--==================================Highest Salary
+
+```sql
+SELECT DISTINCT Salary, [EmpName]
+FROM EmpSalary
+ORDER BY Salary DESC
+OFFSET 1 ROWS
+FETCH NEXT 1 ROW ONLY;
+--=====================================
+SELECT TOP 1 Salary, [EmpName]
+FROM (
+    SELECT TOP 2 Salary, [EmpName]
+    FROM EmpSalary
+    ORDER BY Salary DESC
+) AS Temp
+ORDER BY Salary ASC;
+```
+
 --==================================DUPLICATE EMAILS
 
 ```sql
