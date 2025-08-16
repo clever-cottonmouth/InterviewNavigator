@@ -47,6 +47,7 @@ Less React involvement, as state updates aren’t required for every change.
 Useful for simple forms or when integrating with non-React libraries.
 
 ## 4. What are higher-order components (HOCs) in React, and how are they used?
+
 A Higher-Order Component (HOC) in React is a design pattern used to reuse component logic. It is a function that takes a component as an argument and returns a new component with enhanced functionality. HOCs are a way to share behavior or logic across multiple components without duplicating code, leveraging React’s compositional nature.
 Definition: An HOC is a function that wraps a component to add additional props, state, or behavior, returning a new component.
 Key Characteristics:
@@ -54,3 +55,126 @@ HOCs are not part of React’s API but are a pattern that emerges from React’s
 They are pure functions with no side effects, taking a component and returning a new one.
 They are commonly used for cross-cutting concerns like authentication, logging, or data fetching.
 
+## JSX
+
+JSX code here which is basically HTML code inside of JavaScript. Indeed, JSX stands for JavaScript XML because HTML in the end is XML, you could say. So, we got this HTML code in JavaScript.
+
+## HOOKS
+
+USESTATE
+
+USEEFFECT
+
+USEREF
+
+USEREDUCER
+
+USEMEMO
+
+USELOCATION
+
+USECALLBACK
+
+USECONTEXT
+
+USEIMPERATIVEHANDLE
+
+## CONTEXT API
+
+## **What is React Router?**
+
+### ****What is prop drilling and its disadvantages?****
+
+## What is Reoncillation in React?
+
+## Explain Strict Mode in React.
+
+## What are error boundaries?
+
+
+# How do you handle side effects in React components?
+
+## What are the lifecycle methods of React?
+
+## How to pass data between sibling components using React router?
+
+What is the difference between state and props in React?
+
+
+### What is the difference between `useEffect` and `useLayoutEffect` in React?
+
+
+### What is `forwardRef()` in React used for?
+
+
+### Explain what React hydration is
+
+
+### What are React Portals used for?
+
+
+### How do you localize React applications?
+
+
+### What is code splitting in a React application?
+
+
+### What is the Flux pattern and what are its benefits?
+
+
+### What is React Fiber and how is it an improvement over the previous approach?
+
+
+### What are forms in React?
+
+
+## How would you lift the state up in a React application, and why is it necessary?
+
+
+## What are Pure Components?
+
+
+## What is the role of PropTypes in React?
+
+
+## What is the difference between `createElement` and `cloneElement`?
+
+
+## What are stateless components?
+
+
+## What are stateful components?
+
+
+## Explain higher-order components (HOCs).
+
+
+## What are some common performance optimization techniques in React?
+
+
+## What is Static site generation (SSG)?
+
+
+## What is lazy loading in React?
+
+
+# How would you handle form validation in React?
+
+
+# What is Redux, and how does it help manage state in large applications?
+
+
+# What is the difference between Redux and Context API?
+
+
+# How would you handle asynchronous actions in Redux?
+
+
+# How does React handle security vulnerabilities like XSS attacks?
+
+
+### **What is the purpose of render() in React?**
+
+### **What are synthetic events in React?**
+
+### **What is React Fiber?**
