@@ -6,16 +6,13 @@ platform-neutral environment for executing applications written in multiple high
 
 c# code -> IL code -> Jit Compiler-> Hardware
 
-
-
 ## **Difference between Class and Objects in C#**
 
 a Class is a template or blueprint for creating Objects, and every Object in C# must belong to a Class
 
-
 # Constructor
 
-It is a special method present inside a class responsible for initializing the variables of that class. 
+It is a special method present inside a class responsible for initializing the variables of that class.
 
 The constructor method does not return any value.
 
@@ -24,7 +21,6 @@ The Constructors are responsible for two things. One is the object initializatio
 The compiler defined this constructor for us. And we call this an Implicit Constructor. And if we defined the same thing, then it is called an explicit constructor.
 
 If we don’t have a constructor, then we cannot create an instance of the class.
-
 
 Every variable we declared inside a class and every field we declared inside a class has a default value. All numeric types are initialized with 0, Boolean types initialized with false, and string and object types initialized with null. For a better understanding, please have a look at the below image.
 
@@ -36,6 +32,8 @@ In a static constructor, you cannot use any access specifiers like public, priva
 
 Static Constructors are responsible for initializing static variables and these constructors are never called explicitly. They are called Implicitly and moreover, these constructors are the first to execute in any class
 
+Static Constructors execute immediately once the execution of a class start and moreover, it is the first block of code to run under a class whereas non-static constructors execute only after creating the instance of the class as well as each and every time the instance of the class is created.
+
 Static Constructors cannot be parameterized, so overloading of the static constructors is not possible in C#.
 
 **private constructor**
@@ -43,6 +41,32 @@ Static Constructors cannot be parameterized, so overloading of the static constr
 When a class contains a private constructor then we cannot create an object for the class outside of the class. So, private constructors are used to create an object for the class within the same class. Generally, private constructors are used in the Remoting concept.
 
 We need to use the private constructor in C# when the class contains only static members.
+
+
+##### **When to use Private Constructors in C#?**
+
+private constructor is used to implement Singleton Design Pattern.
+
+
+## Destructor
+
+Destructors which are also called Finalizers in C# are used to perform any necessary final clean-up when a class instance is being collected by the garbage collector.
+
+
+##### **When to use Destructor in C#?**
+
+You might have one question on your mind if the memory management is automatically managed by the garbage collector, then when do we need to use Destructor? In general, as C#.NET developers, we need not be much more worried about memory management. This is because the .NET garbage collector implicitly manages the allocation and deallocation of the memory for our objects.
+
+However, when our application works with unmanaged resources, such as windows, files, and network connections, we should use a destructor to free the memory for those unmanaged resources. When the object is eligible for destruction, the garbage collector runs the Finalize method of the object.
+
+
+##### **When is a Destructor method Called in C#?**
+
+A destructor method gets called automatically by the garbage collector when the object of the class is destroyed. So, the point that you need to remember is that the destructor methods are automatically called by the garbage collector.
+
+Desctructor is called implicitily
+
+can can call destructor explicilty by using GC.Collect();
 
 ## **Generalization and Specialization**
 
@@ -64,7 +88,6 @@ partial classes allow you to split the definition of a single class across multi
 4. **Same Assembly**: Partial classes must be defined within the same assembly (project).
 
 **Sealed Class and Sealed Methods in C#**
-
 
 ## CLR-Common Language Runtime
 
@@ -360,8 +383,6 @@ Points to Remember while working with C# Generic Delegates:
 ## Concurrency
 
 Concurrency means doing several things at the same time. For example, if we have to do a million tasks, then instead of doing them sequentially one by one, we can do them simultaneously, thus reducing the duration of the program execution.
-
-
 
 ## **What are Accessors in C#?**
 
