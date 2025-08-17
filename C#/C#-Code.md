@@ -18,7 +18,6 @@ public string ReverseString(string s)
 
 ## Check if a String is a Palindrome
 
-
 ```csharp
 public bool IsPalindrome(string s)
 {
@@ -34,7 +33,6 @@ public bool IsPalindrome(string s)
 ```
 
 ## Find the First Non-Repeating Character in a String
-
 
 ```csharp
 public char FirstNonRepeatingChar(string s)
@@ -54,7 +52,6 @@ public char FirstNonRepeatingChar(string s)
 
 ## Find Duplicates in an Array
 
-
 ```csharp
 public List<int> FindDuplicates(int[] nums)
 {
@@ -70,7 +67,6 @@ public List<int> FindDuplicates(int[] nums)
     return duplicates;
 }
 ```
-
 
 ## **Reverse words in a sentence** .
 
@@ -131,23 +127,6 @@ public class HelloWorld
 ```
 
 ---
-
-## Remove Duplicate
-
-```
-using System;
-using System.Linq;
-
-public class Program
-{
-	public static void Main()
-	{
-		string originalString = "amanisaman";
-		string newString = string.Join(" ", originalString.ToCharArray().Distinct());
-		Console.WriteLine(newString);
-	}
-}
-```
 
 ---
 
@@ -348,7 +327,7 @@ public class Program
 
 ```
 using System;
-	
+
 public class Program
 {
 	public static void Main()
@@ -556,11 +535,11 @@ class Program
 public class Solution {
     public int LongestSubstringWithoutRepeat(string s) {
         if (string.IsNullOrEmpty(s)) return 0;
-    
+  
         HashSet<char> seen = new HashSet<char>();
         int maxLength = 0;
         int start = 0;
-    
+  
         for (int end = 0; end < s.Length; end++) {
             // While we encounter a duplicate, shrink the window
             while (seen.Contains(s[end])) {
@@ -572,7 +551,7 @@ public class Solution {
             // Update maxLength if current window is larger
             maxLength = Math.Max(maxLength, end - start + 1);
         }
-    
+  
         return maxLength;
     }
 }
@@ -628,17 +607,17 @@ public class Program
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         Dictionary<int, int> numToIndex = new Dictionary<int, int>();
-    
+  
         for (int i = 0; i < nums.Length; i++) {
             int complement = target - nums[i];
-        
+      
             if (numToIndex.ContainsKey(complement)) {
                 return new int[] { numToIndex[complement], i };
             }
-        
+      
             numToIndex[nums[i]] = i;
         }
-    
+  
         return new int[0]; // Empty array if no solution (not reached due to problem guarantee)
     }
 }
@@ -694,7 +673,6 @@ public async Task<string> FetchDataAsync(string url)
 ```
 
 ## Implement a Singleton Pattern
-
 
 ```csharp
 public sealed class Singleton
