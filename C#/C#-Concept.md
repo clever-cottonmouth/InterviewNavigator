@@ -42,23 +42,19 @@ When a class contains a private constructor then we cannot create an object for 
 
 We need to use the private constructor in C# when the class contains only static members.
 
-
 ##### **When to use Private Constructors in C#?**
 
 private constructor is used to implement Singleton Design Pattern.
 
-
 ## Destructor
 
 Destructors which are also called Finalizers in C# are used to perform any necessary final clean-up when a class instance is being collected by the garbage collector.
-
 
 ##### **When to use Destructor in C#?**
 
 You might have one question on your mind if the memory management is automatically managed by the garbage collector, then when do we need to use Destructor? In general, as C#.NET developers, we need not be much more worried about memory management. This is because the .NET garbage collector implicitly manages the allocation and deallocation of the memory for our objects.
 
 However, when our application works with unmanaged resources, such as windows, files, and network connections, we should use a destructor to free the memory for those unmanaged resources. When the object is eligible for destruction, the garbage collector runs the Finalize method of the object.
-
 
 ##### **When is a Destructor method Called in C#?**
 
@@ -439,3 +435,11 @@ IQueryable in C# is an interface that is used to query data from a data source. 
 Constructor Injection
 Property Injection
 Method Injection
+
+
+## Explain the difference between const and readonly.
+
+
+## What is thread pooling in C#?
+
+## What is a race condition in multithreading?
