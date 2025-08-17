@@ -64,20 +64,19 @@ Desctructor is called implicitily
 
 can can call destructor explicilty by using GC.Collect();
 
-
-
 ## **What is Garbage Collection in .NET Framework?**
 
 ###### Garbage Collector is nothing but a feature provided by CLR that helps us clean or destroy unused managed objects. Cleaning or destroying those unused managed objects basically reclaims the memory.
-
-
 
 ##### **What are Generations?**
 
 Generations are nothing but will define how long the objects stay in the memory
 
-
 your class should implement the IDisposable interface and provide the implementation for the Dispose method. Within the Dispose method, you need to write the clean-up code for unmanaged objects, and in the end, you need to call GC.SuppressFinalize(true) method by passing true as the input value. This method suppresses any kind of destructor and just goes and cleans up the objects.
+
+
+
+## **Different Types of Access Specifiers in C#:**
 
 ## **Generalization and Specialization**
 
@@ -86,7 +85,6 @@ In specialization, the parent was existing and the child was defined later. In g
 In specialization, the base class has something to give to the child class whereas, in generalization, the base class doesn’t have anything to give to their child classes. Just their purpose is to group them together so that we can easily manage all those things.
 
 The purpose of generalization is to achieve polymorphism and the purpose of specialization is to share its features with its child classes.
-
 
 ## **Differences Between Finalize and Dispose in C#**
 

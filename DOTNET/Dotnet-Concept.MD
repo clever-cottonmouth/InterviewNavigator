@@ -488,8 +488,6 @@ In .NET, dependency injection (DI) is a core feature, especially in ASP.NET Core
   ```
 * **Note**: Interface injection is uncommon in .NET due to its complexity and lack of native support. Constructor injection is preferred.
 
-
-
 ## IActionResult and ActionResult
 
 * IActionResult: We need to use IActionResult when we need to return different types of responses (e.g., success, error, not found) from a single action method.
@@ -518,3 +516,21 @@ In .NET, dependency injection (DI) is a core feature, especially in ASP.NET Core
 * 403 Forbidden: The server understands the request but refuses to authorize it due to lack of permission.
 * 404 Not Found: The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid, but the resource itself does not exist.
 * 405 Method Not Allowed: This indicates that the server knows the request method but is not supported by the target resource. For example, we have one method, which is a POST method, in the server, and we are trying to access that method from the client using GET Verb; then, in that case, we will get a 405-status code.
+
+
+## **Configuring the Startup Class in ASP.NET Core**
+
+The Startup class is a very important class for any type of ASP.NET Core Web Application. This class provides two important methods are as follows:
+
+1. **ConfigureService**
+2. **Configure**
+
+##### **ConfigureService Method:**
+
+The ConfigureService method is used to configure all the services that you want to use in this application. The ConfigureService method takes IServiceCollection as an input parameter. The IServiceCollection interface belongs to Microsoft.Extensions.DependencyInjection namespace. So, whenever we inject any kind of method to this IServiceCollection object that means we are injecting the service to the built-in dependency injection.
+
+##### **Configure Method:**
+
+The Configure method is used to configure the HTTP request processing pipeline of the application. In other words, we can say that it will configure all the middleware that you want to use in your application. The Configure method takes two parameters i.e. IApplicationBuilder and IWebHostEnvironment instance. The IApplicationBuilder interface belongs to Microsoft.AspNetCore.Builder namespace and IWebHostEnvironment interface belong to Microsoft.AspNetCore.Hosting namespace.
+
+The IApplicationBuilder Defines a class that provides the mechanisms to configure an application’s request pipeline. On the other hand, the IWebHostEnvironment Provides information about the web hosting environment an application is running in.
