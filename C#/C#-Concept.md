@@ -87,6 +87,13 @@ In specialization, the base class has something to give to the child class where
 
 The purpose of generalization is to achieve polymorphism and the purpose of specialization is to share its features with its child classes.
 
+
+## **Differences Between Finalize and Dispose in C#**
+
+* **Timing:** Finalize is called by the garbage collector in a non-deterministic manner, while Dispose is called explicitly at a known point in the program.
+* **Resources:** Finalize is typically used for unmanaged resources, whereas Dispose can be used for both managed and unmanaged resources.
+* **Control:** Dispose gives you more control over resource management compared to Finalize.
+
 ## CLASS IN C#
 
 **Partial Class and Partial Methods in C#**
