@@ -138,8 +138,6 @@ function-refers undefined in strict mode otherwisw it refers window
 
 arrow function- inherits from surrounding scope.
 
-
-
 # Slice And Splice
 
 * **Modification** :
@@ -155,6 +153,8 @@ arrow function- inherits from surrounding scope.
 ## Debounce and Throttle
 
 ## EventDelegation
+
+## Pure Function
 
 # hasOwnProperty
 
