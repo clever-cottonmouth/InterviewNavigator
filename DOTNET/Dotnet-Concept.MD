@@ -16,6 +16,14 @@ namespace Polymorphism.Extensions
 
 # How to manage state in asp.net core?
 
+# How to handle cors?
+
+# How to secure web api
+
+# Difference between ActionResult and IActionResult
+
+# How to implement API versioning?
+
 # CONVENTIONAL AND ATTRIBUTE ROUTING
 
 Following are some suggestions on when to use each one. Consider choosing traditional routes when:

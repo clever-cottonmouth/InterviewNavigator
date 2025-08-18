@@ -154,6 +154,7 @@ arrow function- inherits from surrounding scope.
 
 ## Debounce and Throttle
 
+## EventDelegation
 
 # hasOwnProperty
 
