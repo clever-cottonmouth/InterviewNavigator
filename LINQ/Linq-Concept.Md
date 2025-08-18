@@ -35,3 +35,54 @@ SingleOrDefault
 It returns first element (only one element) that matches with the collection.
 
 It returns null if no element matches with the condition; but it throws exception if multiple elements match with the condition.
+
+
+ToLookup
+
+AsEnumerable
+
+AsQueryable
+
+ToList
+
+ToDictionary
+
+ToArray
+
+GroupBy
+
+ElementAt vs ElementAtOrDefault
+
+Range
+
+Empty
+
+Last vs LastOrDefault
+
+Concat
+
+Union
+
+Intersect
+
+Any
+
+Contains
+
+select vs SelectMany
+
+OrderBy
+
+ThenBy
+
+Reverse
+
+where
+
+Take
+
+TakeWhile
+
+Skip
+
+SkipWhile
