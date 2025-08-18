@@ -152,6 +152,9 @@ arrow function- inherits from surrounding scope.
 * `slice()`: When you need a portion of the array without altering the original.
 * [`splice()`: When you need to add, remove, or replace elements in the array](https://www.geeksforgeeks.org/what-is-the-difference-between-array-slice-and-array-splice-in-javascript/)
 
+## Debounce and Throttle
+
+
 # hasOwnProperty
 
 * Checks only the object’s own properties.
