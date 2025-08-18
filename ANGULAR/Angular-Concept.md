@@ -1,4 +1,3 @@
-
 ## How DI works?
 
 STEP 1:
@@ -16,12 +15,10 @@ export class MyService {
 }
 ```
 
-
 * **The **@Injectable** decorator marks the class as injectable.**
 * **providedIn: 'root'** ensures the service is available application-wide as a singleton.
 
-
-**Angular’s DI system needs to know how to provide the service. The **providedIn: 'root'** metadata in the service handles this automatically. However, you can also register providers manually in a module or component.**1. 
+**Angular’s DI system needs to know how to provide the service. The **providedIn: 'root'** metadata in the service handles this automatically. However, you can also register providers manually in a module or component.**1.
 
 **Using **providedIn: 'root'** (Recommended)**:
 
@@ -49,7 +46,6 @@ export class AppModule {}
 **Component-Level Provider (Optional)**:
 If you want a new instance of the service for a specific component and its children, register it in the component’s metadata:
 
-
 ```typescript
 @Component({
   selector: 'app-my-component',
@@ -61,7 +57,6 @@ export class MyComponent {}
 
 Inject the service into the component:
 Open src/app/my-component/my-component.component.ts and inject MyService via the constructor:
-
 
 ```typescript
 import { Component, OnInit } from '@angular/core';
@@ -84,10 +79,8 @@ export class MyComponent implements OnInit {
 
 The private myService: MyService syntax tells Angular to inject an instance of MyService.
 
-
 **Explore Advanced DI (Optional)**1. Using InjectionToken for Non-Class Dependencies:
    If you need to inject a configuration value (e.g., API URL), create an InjectionToken:
-
 
 ```typescript
 import { InjectionToken } from '@angular/core';
@@ -101,10 +94,9 @@ export const API_URL = new InjectionToken<string>('API_URL');
 export class AppModule {}
 ```
 
-
 Types of Providers
 
-Angular supports various provider types for flexibility:* 
+Angular supports various provider types for flexibility:*
 
 Class Provider: provide: MyService, useClass: MyService
 
@@ -373,3 +365,5 @@ Angular directives are special markers (attributes or elements) in the DOM that 
 Defined using the @Component decorator, they encapsulate HTML, CSS, and TypeScript logic.
 Identified by a leading asterisk (*) in templates. *ngif
 Modify the behavior or appearance of an element without altering the DOM structure. ngClass
+
+# What is Angular Services?

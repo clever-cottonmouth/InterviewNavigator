@@ -71,6 +71,12 @@ var student1 = {
 
 Hoisting is JavaScript's default behavior of moving declarations to the top.
 
+var - hoisted but undefined
+
+function- hoisted with defination
+
+let & const - hoisted but remain temporal deal zone.
+
 ```
 alert(Sum(5, 5)); // 10
 
@@ -118,10 +124,23 @@ function init() {
 init();
 ```
 
+# Lexical Scopr
+
+inner function can access their variable from their parent.
+
+# This
+
+This object refers the object it belongs to. but it defined how it getting called
+
+method- it refers the object
+
+function-refers undefined in strict mode otherwisw it refers window
+
+arrow function- inherits from surrounding scope.
+
 # Slice And Splice
 
- * **Modification** :
-
+* **Modification** :
 * `slice()`: Does not modify the original array.
 * `splice()`: Modifies the original array.
 * **Return Value** :
@@ -131,6 +150,11 @@ init();
 * `slice()`: When you need a portion of the array without altering the original.
 * [`splice()`: When you need to add, remove, or replace elements in the array](https://www.geeksforgeeks.org/what-is-the-difference-between-array-slice-and-array-splice-in-javascript/)
 
+## Debounce and Throttle
+
+## EventDelegation
+
+## Pure Function
 
 # hasOwnProperty
 
