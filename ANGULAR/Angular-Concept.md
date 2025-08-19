@@ -305,3 +305,7 @@ Difference between ContentChild and ContentChildren
 what is ng-content
 
 what is queryList
+
+Template diven and reactive form
+
+how angular handle change detection

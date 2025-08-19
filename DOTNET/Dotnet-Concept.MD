@@ -550,5 +550,8 @@ Difference between ViewBag, ViewData, TempData?
 
 How to secure API?
 
-
 Response Code
+
+IEnumerable, ICollection, IList, IQueryable
+
+Caching

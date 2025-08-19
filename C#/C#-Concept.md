@@ -74,8 +74,6 @@ Generations are nothing but will define how long the objects stay in the memory
 
 your class should implement the IDisposable interface and provide the implementation for the Dispose method. Within the Dispose method, you need to write the clean-up code for unmanaged objects, and in the end, you need to call GC.SuppressFinalize(true) method by passing true as the input value. This method suppresses any kind of destructor and just goes and cleans up the objects.
 
-
-
 ## **Different Types of Access Specifiers in C#:**
 
 ## **Generalization and Specialization**
@@ -461,3 +459,5 @@ Method Injection
 ## What is thread pooling in C#?
 
 ## What is a race condition in multithreading?
+
+## Thread and Task
