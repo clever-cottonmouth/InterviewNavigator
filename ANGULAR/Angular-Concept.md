@@ -295,3 +295,13 @@ what is http interceptor
 what is observable
 
 Difference between Constructor and ngOnint?
+
+What is AuthGuard or RouteGuard
+
+Difference between ViewChild and ViewChildren
+
+Difference between ContentChild and ContentChildren
+
+what is ng-content
+
+what is queryList

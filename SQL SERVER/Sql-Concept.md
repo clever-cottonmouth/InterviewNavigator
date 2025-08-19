@@ -44,6 +44,14 @@ The Sequence Object is one of the new features introduced in SQL Server 2012. A 
 
 ## Trigger
 
+## Indexs
+
+## Transaction
+
+## Local Temporary Table and Global Temproary Table
+
+## Difference between Having and Where?
+
 ## MagicTable
 
 ## VIEWS

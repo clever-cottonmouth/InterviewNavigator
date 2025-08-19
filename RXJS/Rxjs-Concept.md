@@ -34,6 +34,8 @@ merge
 
 combineLatest
 
+retry
+
 
 ## Differences between mergeMap, concatMap, and switchMap.
 
