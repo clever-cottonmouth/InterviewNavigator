@@ -158,6 +158,10 @@ USECONTEXT
 
 USEIMPERATIVEHANDLE
 
+USECONTEXT
+
+CUSTOM HOOKS
+
 ## CONTEXT API
 
 ## **What is React Router?**
@@ -209,11 +213,13 @@ What is the difference between state and props in React?
 Stateless components in React are components that do not manage or hold their own state. They receive data and behavior exclusively through props and render UI based on those props. Typically, stateless components are implemented as functions (function components).
 
 **Example:**
+
 ```javascript
 function Greeting(props) {
   return <h1>Hello, {props.name}!</h1>;
 }
 ```
+
 Stateless components are simple, reusable, and easier to test since their output depends only on the input props.
 
 ## What are stateful components?
@@ -221,6 +227,7 @@ Stateless components are simple, reusable, and easier to test since their output
 Stateful components in React are components that manage their own internal state using the `useState` hook (in function components) or `this.state` (in class components). They can update their state in response to user interactions, API calls, or other events, and re-render when the state changes.
 
 **Example (Function Component):**
+
 ```javascript
 import React, { useState } from 'react';
 
@@ -242,10 +249,12 @@ Stateful components are useful when you need to track and update data that affec
 A higher-order component (HOC) is a function in React that takes a component and returns a new component with enhanced or additional functionality. HOCs are used to reuse logic across multiple components, such as handling authentication, data fetching, or logging.
 
 **Key points:**
+
 - HOCs do not modify the original component; they wrap it and add new props, state, or behavior.
 - HOCs are a pattern, not a part of the React API.
 
 **Example:**
+
 ```javascript
 function withLogger(WrappedComponent) {
   return function(props) {
@@ -254,6 +263,7 @@ function withLogger(WrappedComponent) {
   };
 }
 ```
+
 You can use HOCs to share code between components without repeating logic.
 
 ## What are some common performance optimization techniques in React?

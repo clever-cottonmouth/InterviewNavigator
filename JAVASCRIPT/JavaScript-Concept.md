@@ -156,6 +156,8 @@ arrow function- inherits from surrounding scope.
 
 ## Pure Function
 
+Event Bubbling
+
 # hasOwnProperty
 
 * Checks only the object’s own properties.
