@@ -1,11 +1,5 @@
-typeof null = object
-
-typeof undefined = undefined
-
-typeof arr = object
 
 typeof
-
 
 To add some background, there are two data types in JavaScript:
 

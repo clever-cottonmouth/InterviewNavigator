@@ -174,6 +174,14 @@ high order function
 
 ## Curring
 
+## TypeOf
+
+typeof null = object
+
+typeof undefined = undefined
+
+typeof arr = object
+
 # hasOwnProperty
 
 * Checks only the object’s own properties.
