@@ -70,6 +70,30 @@ public List<int> FindDuplicates(int[] nums)
 
 ## **Reverse words in a sentence** .
 
+## Find Occurance in string and Array
+
+```csharp
+using System;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        int[] numbers = { 1, 2, 3, 2, 4, 2, 5 };
+
+    var frequency = numbers.GroupBy(n => n)
+                               .ToDictionary(g => g.Key, g => g.Count());
+
+    foreach (var kvp in frequency)
+        {
+            Console.WriteLine($"{kvp.Key} occurs {kvp.Value} times");
+        }
+    }
+}
+```
+
+
 ## **Find 2nd highest (or nth highest) number in an array** .
 
 ## String sort
@@ -610,11 +634,11 @@ public class Solution {
   
         for (int i = 0; i < nums.Length; i++) {
             int complement = target - nums[i];
-      
+    
             if (numToIndex.ContainsKey(complement)) {
                 return new int[] { numToIndex[complement], i };
             }
-      
+    
             numToIndex[nums[i]] = i;
         }
   

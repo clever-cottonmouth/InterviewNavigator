@@ -549,3 +549,6 @@ How to implement API versioning in asp.net core?
 Difference between ViewBag, ViewData, TempData?
 
 How to secure API?
+
+
+Response Code

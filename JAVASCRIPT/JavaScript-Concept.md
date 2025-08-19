@@ -152,11 +152,27 @@ arrow function- inherits from surrounding scope.
 
 ## Debounce and Throttle
 
+let, const, var
+
+rest and spread
+
+deep copy and shallow copy
+
+event bubbling and event capturing
+
+high order function
+
 ## EventDelegation
 
 ## Pure Function
 
-Event Bubbling
+## ImPure Function
+
+## Weakmap and WeakSet
+
+## Event Bubbling
+
+## Curring
 
 # hasOwnProperty
 

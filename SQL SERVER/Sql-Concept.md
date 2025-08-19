@@ -42,6 +42,10 @@ The Sequence Object is one of the new features introduced in SQL Server 2012. A 
 
 ## Delete And Truncate
 
+## Trigger
+
+## MagicTable
+
 ## VIEWS
 
 A view is a named query stored in the database catalog that allows you to refer to it later.
@@ -68,7 +72,7 @@ Sometimes, you need to write a complex formula or logic in every query.
 
 To make it consistent, you can hide the complex queries logic and calculations in views.
 
-Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.	
+Once views are defined, you can reference the logic from the views rather than rewriting it in separate queries.
 
 ## Check And Default
 
