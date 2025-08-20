@@ -1,3 +1,27 @@
+## **What are Angular Decorators?**
+
+Decorators are the features of Typescript and are implemented as functions. The name of the decorator starts with **@** symbol following by brackets and arguments. That means in angular whenever you find something which is prefixed by **@** symbol, then you need to consider it as a decorator.
+
+
+##### **Commonly used Decorators:**
+
+There are many built-in decorators are available in angular. Some of them are as follows:
+
+1. **@NgModule** to define a module.
+2. **@Component** to define components.
+3. **@Injectable** to define services.
+4. **@Input** and **@Output** to define properties, etc.
+
+
+##### **Types of Decorators in Angular:**
+
+In Angular, the Decorators are classified into 4 types. They are as follows:
+
+1. **Class Decorators:** @Component and @NgModule
+2. **Property Decorators:** @Input and @Output (These two decorators are used inside a class)
+3. **Method Decorators:** @HostListener (This decorator is used for methods inside a class like a click, mouse hover, etc.)
+4. **Parameter Decorators:** @Inject (This decorator is used inside class constructor).
+
 ## How DI works?
 
 STEP 1:
@@ -282,11 +306,35 @@ Directives: Structural directives like *ngIf and *ngFor often work with data bin
 
 ## Angular Directives
 
-Angular directives are special markers (attributes or elements) in the DOM that extend HTML functionality or manipulate the DOM in Angular applications. They allow you to attach behavior to elements, modify their structure, or create reusable components. Angular has three main types of directives: Component Directives, Structural Directives, and Attribute Directives.
+The Angular Directives are the elements which are basically used to change the behavior or appearance or layout of the DOM (Document Object Model) element. In other words, we can say that the directives are basically used to extend the power of HTML attributes and to change the appearance or behavior of a DOM element.
 
-Defined using the @Component decorator, they encapsulate HTML, CSS, and TypeScript logic.
-Identified by a leading asterisk (*) in templates. *ngif
-Modify the behavior or appearance of an element without altering the DOM structure. ngClass
+
+##### **Types of Directives in Angular:**
+
+**Structural Directive**
+
+
+The Structural Directives are responsible for the HTML layout. That means, they will shape or reshape the HTML view by simply adding or removing the elements from the DOM. These directives are basically used to handle how the component or the element should render in a template.
+
+In Angular, there are three structural directives are available. They are as follows:
+
+1. **NgFor (*ngFor)**
+2. **NgIf (*ngIf)**
+3. **NgSwitch (*ngSwitch)**
+
+**Attribute Directive**
+
+
+Attribute Directives are basically used to modify the behavior or appearance of the DOM element or the Component. In Angular, there are two in-built attribute directives available. They are as follows:
+
+1. **NgStyle** : This NgStyle Attribute Directive is basically used to modify the element appearance or behavior.
+2. **NgClass** : This NgClass Attribute Directive is basically used to change the class attribute of the element in the DOM or in the Component to which it has been attached.
+
+**Component Directives**
+
+The Component is also a type of directive in angular with its own template, styles, and logic needed for the view. The Component Directive is the most widely used directive in the angular application and you cannot create an angular application without a component.
+
+A component directive requires a view along with its attached behavior and this type of directive adds DOM Elements. The Component Directive is a class with **@Component** decorator function.
 
 # What is Angular Services?
 
