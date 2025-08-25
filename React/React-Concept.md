@@ -299,3 +299,13 @@ Applying these techniques helps keep React applications fast and responsive.
 ### **What are synthetic events in React?**
 
 ### **What is React Fiber?**
+
+How does the JavaScript event loop work?
+
+What are promises, and how do they differ from async/await?
+
+What is the difference between shallow and deep copying in JavaScript?
+
+Explain the purpose of React hooks. How does useEffect work?
+
+What is the significance of key props in React lists?
