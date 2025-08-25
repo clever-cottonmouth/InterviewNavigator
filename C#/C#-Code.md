@@ -93,12 +93,11 @@ class Program
 }
 ```
 
-
 ## **Find 2nd highest (or nth highest) number in an array** .
 
 ## String sort
 
-```
+```csharp
 using System;
 using System.Linq;
 
@@ -115,7 +114,7 @@ class Program
 
 ---
 
-```
+```csharp
 using System;
 using System.Linq;
 using System.Collections.Generic;
@@ -135,7 +134,7 @@ public class HelloWorld
 
 ## Remove Vowels
 
-```
+```csharp
 using System;
 using System.Linq;
 public class HelloWorld
@@ -156,7 +155,7 @@ public class HelloWorld
 
 ## Remove duplicate
 
-```
+```csharp
 using System;
 public class Program
 {
@@ -176,7 +175,7 @@ public class Program
 
 ## Count Occurance using Dictionary
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 public class Program
@@ -209,7 +208,7 @@ public class Program
 
 ## Count occurance
 
-```
+```csharp
 using System;
 
 public class Program
@@ -225,7 +224,7 @@ public class Program
 }
 ```
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -249,7 +248,7 @@ public class Program
 
 ## Sum of digit
 
-```
+```csharp
 using System;
 
 public class Program
@@ -270,7 +269,7 @@ public class Program
 
 ## Reverse digit
 
-```
+```csharp
 using System;
 
 public class Program
@@ -309,7 +308,7 @@ return fib(n-1) + fib(n-1)
 
 ## Using string.Join
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -328,7 +327,7 @@ class Program
 
 ## Reverse String
 
-```
+```csharp
 using System;
 
 public class Program
@@ -349,7 +348,7 @@ public class Program
 
 # Reverse an Array
 
-```
+```csharp
 using System;
 
 public class Program
@@ -369,7 +368,7 @@ public class Program
 
 # Move zero at Last
 
-```
+```csharp
 using System;
 
 public class Program
@@ -583,7 +582,7 @@ public class Solution {
 
 ## Valid Parenthesis
 
-```
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -627,18 +626,18 @@ public class Program
 
 ## Two Sum
 
-```
+```csharp
 public class Solution {
     public int[] TwoSum(int[] nums, int target) {
         Dictionary<int, int> numToIndex = new Dictionary<int, int>();
   
         for (int i = 0; i < nums.Length; i++) {
             int complement = target - nums[i];
-    
+  
             if (numToIndex.ContainsKey(complement)) {
                 return new int[] { numToIndex[complement], i };
             }
-    
+  
             numToIndex[nums[i]] = i;
         }
   
@@ -649,7 +648,7 @@ public class Solution {
 
 ## Find the maximum subarray sum.
 
-```
+```csharp
 public class Solution {
     public int MaxSubarraySum(int[] nums) {
         if (nums == null || nums.Length == 0) {
